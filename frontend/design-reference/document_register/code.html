@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>TenderIQ</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#004ac6","tertiary-container":"#bc4800","surface-bright":"#f7f9fb","surface-container-low":"#f2f4f6","background":"#f7f9fb","on-primary-fixed-variant":"#003ea8","surface-variant":"#e0e3e5","surface-container-highest":"#e0e3e5","on-primary-fixed":"#00174b","on-tertiary-container":"#ffede6","on-background":"#191c1e","primary-fixed":"#dbe1ff","primary-container":"#2563eb","on-error":"#ffffff","on-secondary-fixed":"#131b2e","on-tertiary-fixed-variant":"#7d2d00","tertiary-fixed-dim":"#ffb596","error":"#ba1a1a","secondary-fixed-dim":"#bec6e0","on-tertiary":"#ffffff","primary-fixed-dim":"#b4c5ff","surface-dim":"#d8dadc","on-secondary":"#ffffff","outline":"#737686","outline-variant":"#c3c6d7","on-primary":"#ffffff","on-surface-variant":"#434655","tertiary-fixed":"#ffdbcd","surface-container-lowest":"#ffffff","inverse-on-surface":"#eff1f3","surface-container":"#eceef0","inverse-primary":"#b4c5ff","error-container":"#ffdad6","secondary-container":"#dae2fd","secondary-fixed":"#dae2fd","surface":"#f7f9fb","tertiary":"#943700","on-error-container":"#93000a","inverse-surface":"#2d3133","on-tertiary-fixed":"#360f00","on-surface":"#191c1e","on-secondary-fixed-variant":"#3f465c","secondary":"#565e74","on-secondary-container":"#5c647a","surface-container-high":"#e6e8ea","surface-tint":"#0053db","on-primary-container":"#eeefff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter":"1rem","space-md":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"2rem","space-lg":"1.5rem"},fontFamily:{"body-sm":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"title-lg":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-lg":["Inter"],"title-md":["Inter"],"label-sm":["Inter"],"label-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Inter"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",fontWeight:"400"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-lg":["15px",{lineHeight:"22px",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}],"label-lg":["13px",{lineHeight:"18px",fontWeight:"500"}],"title-md":["14px",{lineHeight:"20px",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-on-secondary-fixed text-inverse-on-surface z-50 flex flex-col justify-between py-space-lg"><div class="flex flex-col flex-1 overflow-y-auto"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary-container">analytics</span><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight">TenderIQ</span></div><nav class="flex-1 px-space-sm space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><div class="px-space-sm pt-space-xs pb-space-xs font-label-sm text-label-sm uppercase text-secondary-fixed-dim">Workspace</div><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="all-tenders" href="#"><span>All Tenders</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="new-analysis" href="#"><span>New Analysis</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="deadlines" href="#"><span>Deadlines</span></a><div class="px-space-sm pt-space-md pb-space-xs font-label-sm text-label-sm uppercase text-secondary-fixed-dim">Analysis &amp; Compliance</div><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold" data-path="document-register" href="#"><span>Document Register</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="compliance-matrix" href="#"><span>Compliance Matrix</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="submission-checklist" href="#"><span>Submission Checklist</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="clarifications-ptc" href="#"><span>Clarifications / PTC</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="missing-documents" href="#"><span>Missing Documents</span></a><div class="px-space-sm pt-space-md pb-space-xs font-label-sm text-label-sm uppercase text-secondary-fixed-dim">Organization</div><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="team-reviews" href="#"><span>Team &amp; Reviews</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="settings" href="#"><span>Settings</span></a></nav></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest border-b border-outline-variant z-40 px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm min-w-0"><img alt="TenderIQ Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMmAtXU7pbvCxvSPCO6P4irUd-YJw_k-N410HtIzZT-3wj_3bqo5mHdmS-08rKeIGOO4T2J6A63HqW2YVAxfcCyZbuA1uIJldwL8fp1v9NOJ1wdClLjb2qKD4XE6GZ-1qWX3Cz5EdT9spWmlVB-uVyDFMnxT_Q0Srktz80lNXMk3VUjGdSR_MWXxAZllDFU-6KUbFhVqGy6aCb5KiqY2mw0_IHNdUkmHbRRTRb508"/><nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant overflow-hidden truncate"><span class="hover:text-on-surface cursor-pointer transition-colors">Workspace</span><span class="text-outline">/</span><span class="hover:text-on-surface cursor-pointer transition-colors truncate max-w-xs">RFP-2025-0841: Cloud Infrastructure Modernization</span><span class="text-outline">/</span><span class="text-on-surface font-semibold">Document Register</span></nav></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center justify-between w-80 h-9 px-space-sm bg-surface-container-low border border-outline-variant rounded-lg text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm">Search tenders, RFPs, or documents...</span></div><span class="font-label-sm text-label-sm px-1.5 py-0.5 bg-surface-container-lowest border border-outline-variant rounded">⌘K</span></div><button aria-label="Notifications" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button class="flex items-center gap-space-xs h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New Tender</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuZXVmI-FpRlfDQgRAGD3U7TZ1td0M66snPHArEcXBlRzmr9x_kamuvYJQNmN9ElVJfNu7skYYomNRDWMJesjdXUGHppH1l9IJgsI27aYVmN6YGtlNHLlVTQbeeDiVuTVSxc4xzzavbT0VLcdW7A035eNfP-o_O7rpWBhbM0SKIT8s4G6B5qU6lC1V6OUj_IcSYTyarTXhcfXVmDrPN0RfoI_jU93P3pIHv70Ovac"/></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Sub-Header / Tender Scope Banner -->
+<section class="bg-surface-container-lowest border-b border-outline-variant px-margin py-space-md flex flex-wrap items-center justify-between gap-gutter shadow-sm">
+<div class="flex flex-wrap items-center gap-space-md min-w-0">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-primary">account_balance</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-tight">Dept of Digital Services</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-lowest px-1.5 py-0.5 rounded font-mono">RFP-2025-0841</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span>
+</div>
+<div class="h-4 w-px bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary-fixed text-on-primary-fixed-variant">
+          14 Registered Docs
+        </span>
+<span class="text-outline text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">1,420 Pages Ingested</span>
+<span class="text-outline text-xs">•</span>
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span>
+          Latest: Addendum #03 (Oct 24, 2025)
+        </span>
+</div>
+</div>
+<!-- Global Document Actions -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-space-xs h-9 px-space-sm bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Export Inventory</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim bg-surface-container px-1 py-0.2 rounded">PDF / CSV</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-9 px-space-sm bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">auto_read_pause</span>
+<span>Re-index OCR &amp; AI</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg hover:bg-primary transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+<span>Upload Document / Addendum</span>
+</button>
+</div>
+</section>
+<div class="p-margin space-y-space-lg">
+<!-- Top 5 Metrics Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant shadow-sm hover:shadow transition-shadow">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Total Ingested</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">folder_special</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">14</span>
+<span class="font-label-sm text-label-sm text-secondary">documents</span>
+</div>
+<div class="mt-space-xs pt-space-xs border-t border-outline-variant/60 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">1,420 pgs across 4 vols</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Vol I-IV</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-tertiary-container/40 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-tertiary-fixed/40 to-transparent pointer-events-none rounded-tr-xl"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary">Addenda &amp; Corrigenda</span>
+<span class="material-symbols-outlined text-[20px] text-tertiary">notification_important</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">3</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-tertiary-container text-on-tertiary-container uppercase tracking-wide">
+            Addendum #03
+          </span>
+</div>
+<div class="mt-space-xs pt-space-xs border-t border-outline-variant/60 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Parsed 2h ago</span>
+<span class="font-label-sm text-label-sm font-bold text-tertiary">Re-eval Active</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant shadow-sm hover:shadow transition-shadow">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Mandatory Attachments</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">assignment</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">6</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-100 text-amber-900 border border-amber-300">
+            1 Action Req.
+          </span>
+</div>
+<div class="mt-space-xs pt-space-xs border-t border-outline-variant/60 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">5 Verified &amp; Signed</span>
+<span class="font-label-sm text-label-sm font-semibold text-error">Missing Form E</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant shadow-sm hover:shadow transition-shadow">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">AI OCR &amp; Parse Integrity</span>
+<span class="material-symbols-outlined text-[20px] text-primary">verified</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">100%</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+            Synthesized
+          </span>
+</div>
+<div class="mt-space-xs pt-space-xs border-t border-outline-variant/60 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">184 Requirements Linked</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Matrix Synced</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant shadow-sm hover:shadow transition-shadow">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Classified Annexes</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">encrypted</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">2</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-fixed">
+            FedRAMP High
+          </span>
+</div>
+<div class="mt-space-xs pt-space-xs border-t border-outline-variant/60 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">AES-256 Vaulted</span>
+<span class="font-label-sm text-label-sm font-mono text-secondary">ITAR Clear</span>
+</div>
+</div>
+</section>
+<!-- Urgent Addendum Alert Banner -->
+<div class="bg-amber-50/80 border border-amber-300 rounded-xl p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md shadow-xs">
+<div class="flex items-start gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-amber-200 text-amber-900 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">history_edu</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Corrigendum Alert: Addendum #03 Issued 2 Hours Ago</span>
+<span class="font-label-sm text-label-sm bg-amber-200 text-amber-900 px-2 py-0.5 rounded font-mono font-bold">SHA: e12d...8f4a</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Contracting Officer modified <strong class="text-on-surface font-medium">Section 4.1.2 (SLA penalties revised to 25%)</strong> and appended <strong class="text-on-surface font-medium">Annex F (Cyber Security Maturity Model v3)</strong>. TenderIQ flagged <span class="text-error font-semibold">12 Compliance Matrix requirements</span> requiring proposal owner re-approval.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0 w-full md:w-auto justify-end">
+<button class="h-8 px-space-sm bg-surface-container-lowest border border-amber-300 rounded-lg text-amber-900 hover:bg-amber-100 font-label-md text-label-md transition-colors" type="button">
+          Acknowledge Addendum
+        </button>
+<button class="h-8 px-space-sm bg-tertiary text-on-tertiary rounded-lg hover:bg-tertiary-container font-label-md text-label-md flex items-center gap-1 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>View Impact Analysis (12)</span>
+</button>
+</div>
+</div>
+<!-- Filter & Toolbar Area -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<!-- Top Tab Strip -->
+<div class="flex items-center justify-between border-b border-outline-variant px-space-md pt-2 bg-surface-bright overflow-x-auto">
+<div class="flex items-center gap-space-md min-w-max">
+<button class="pb-2.5 font-label-lg text-label-lg border-b-2 border-primary text-primary font-semibold flex items-center gap-1.5" type="button">
+<span>All Documents</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded-full font-mono">14</span>
+</button>
+<button class="pb-2.5 font-label-lg text-label-lg border-b-2 border-transparent text-secondary hover:text-on-surface font-medium flex items-center gap-1.5" type="button">
+<span>Core RFP Specifications</span>
+<span class="font-label-sm text-label-sm bg-surface-container text-secondary px-1.5 py-0.5 rounded-full font-mono">4</span>
+</button>
+<button class="pb-2.5 font-label-lg text-label-lg border-b-2 border-transparent text-secondary hover:text-on-surface font-medium flex items-center gap-1.5" type="button">
+<span>Addenda &amp; Clarifications</span>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed-variant px-1.5 py-0.5 rounded-full font-mono">3</span>
+</button>
+<button class="pb-2.5 font-label-lg text-label-lg border-b-2 border-transparent text-secondary hover:text-on-surface font-medium flex items-center gap-1.5" type="button">
+<span>Mandatory Response Templates</span>
+<span class="font-label-sm text-label-sm bg-surface-container text-secondary px-1.5 py-0.5 rounded-full font-mono">5</span>
+</button>
+<button class="pb-2.5 font-label-lg text-label-lg border-b-2 border-transparent text-secondary hover:text-on-surface font-medium flex items-center gap-1.5" type="button">
+<span>Appendices &amp; Annexes</span>
+<span class="font-label-sm text-label-sm bg-surface-container text-secondary px-1.5 py-0.5 rounded-full font-mono">2</span>
+</button>
+</div>
+<div class="hidden xl:flex items-center gap-2 pb-2">
+<label class="flex items-center gap-2 cursor-pointer text-on-surface-variant font-label-md text-label-md select-none">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span>Show Addenda Diff Highlights</span>
+</label>
+</div>
+</div>
+<!-- Search & Attribute Filters -->
+<div class="p-space-md flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md border-b border-outline-variant bg-surface-container-lowest">
+<!-- Search bar with auto-fill tags -->
+<div class="relative flex-1 max-w-2xl">
+<span class="material-symbols-outlined text-[18px] text-outline absolute left-3 top-2.5">search</span>
+<input class="w-full h-9 pl-9 pr-24 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition" placeholder="Filter documents by filename, volume, annex, or keywords (e.g., 'FedRAMP', 'pricing', 'Addendum')..." type="text" value="Addendum"/>
+<div class="absolute right-2 top-2 flex items-center gap-1">
+<span class="font-label-sm text-[10px] text-outline bg-surface-container-highest px-1.5 py-0.5 rounded uppercase font-mono">ESC clear</span>
+</div>
+</div>
+<!-- Filter Selects -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary">Status:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">All Parse States</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_drop_down</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary">Security:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">All Levels</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_drop_down</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">sort</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ingestion Date</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_drop_down</span>
+</div>
+<button class="p-1.5 rounded-lg border border-outline-variant hover:bg-surface-container-low text-secondary" title="Compact View Toggle" type="button">
+<span class="material-symbols-outlined text-[18px]">density_medium</span>
+</button>
+</div>
+</div>
+<!-- Document Inventory Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-bright border-b border-outline-variant font-label-sm text-label-sm text-secondary uppercase tracking-wider">
+<th class="py-3 px-space-md w-10">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</th>
+<th class="py-3 px-space-md">Document Name &amp; Metadata</th>
+<th class="py-3 px-space-md">Category / Volume</th>
+<th class="py-3 px-space-md">Ingestion &amp; Authority</th>
+<th class="py-3 px-space-md">Pages &amp; Extraction</th>
+<th class="py-3 px-space-md">AI Verification &amp; Hash</th>
+<th class="py-3 px-space-md">Matrix Impact</th>
+<th class="py-3 px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/60 font-body-sm text-body-sm">
+<!-- Row 1: Addendum #03 (Selected / Highly Active) -->
+<tr class="bg-amber-50/40 hover:bg-amber-50/80 transition-colors">
+<td class="py-3.5 px-space-md">
+<input checked="" class="rounded border-amber-400 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-red-100 text-red-700 flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary cursor-pointer truncate max-w-md">
+                        RFP-2025-0841_Addendum_03_Corrigendum.pdf
+                      </span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-tertiary-container text-on-tertiary-container">LATEST</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary text-xs mt-0.5 font-mono">
+<span>4.8 MB</span>
+<span>•</span>
+<span>Oct 24, 2025 09:14 AM</span>
+<span>•</span>
+<span class="text-tertiary font-semibold">Diff ready (v2.0 vs v3.0)</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-tertiary-fixed text-on-tertiary-fixed-variant">
+                  Addendum #03
+                </span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium text-xs">Gov Contracting Officer</div>
+<div class="text-secondary text-[11px]">DDS Procurement Portal</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-mono font-medium text-xs">18 pages</div>
+<div class="text-tertiary text-xs font-medium">12 clauses modified</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="font-label-sm text-label-sm font-semibold text-amber-800">Diff Review Pending</span>
+</div>
+<div class="text-[11px] text-outline font-mono mt-0.5">SHA-256: 8f4a...e12d</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+                    Compliance Matrix (12)
+                  </span>
+<span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-label-sm text-label-sm font-semibold">
+                    SLA Terms (2)
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-secondary">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" title="Open Document Inspector" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" title="Run Version Diff" type="button">
+<span class="material-symbols-outlined text-[18px]">difference</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" title="Download Source File" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-low rounded" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Volume 1 Technical Specs -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-red-100 text-red-700 flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary cursor-pointer truncate max-w-md">
+                        Volume_1_Technical_Specifications_v1.2.pdf
+                      </span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-surface-container text-secondary">v1.2</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary text-xs mt-0.5 font-mono">
+<span>32.4 MB</span>
+<span>•</span>
+<span>Oct 12, 2025 14:02 PM</span>
+<span>•</span>
+<span>OCR High Quality</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-surface-container-high text-on-surface-variant">
+                  Core Specification
+                </span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium text-xs">Gov Contracting Officer</div>
+<div class="text-secondary text-[11px]">Primary Solicitation</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-mono font-medium text-xs">480 pages</div>
+<div class="text-secondary text-xs">78 clauses parsed (100%)</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-label-sm text-label-sm font-semibold text-emerald-800">Verified &amp; Parsed</span>
+</div>
+<div class="text-[11px] text-outline font-mono mt-0.5">SHA-256: 4b22...91ab</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                    Compliance Matrix (78)
+                  </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                    SecOps (14)
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-secondary">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">difference</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Volume 2 Architecture & Security -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-red-100 text-red-700 flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary cursor-pointer truncate max-w-md">
+                        Volume_2_System_Architecture_Security_Baseline.pdf
+                      </span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-surface-container text-secondary">v1.0</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary text-xs mt-0.5 font-mono">
+<span>18.6 MB</span>
+<span>•</span>
+<span>Oct 12, 2025 14:10 PM</span>
+<span>•</span>
+<span>FedRAMP Baseline</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-surface-container-high text-on-surface-variant">
+                  Core Specification
+                </span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium text-xs">CISO Office / DDS</div>
+<div class="text-secondary text-[11px]">Primary Solicitation</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-mono font-medium text-xs">310 pages</div>
+<div class="text-secondary text-xs">54 clauses parsed (100%)</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-label-sm text-label-sm font-semibold text-emerald-800">Verified &amp; Parsed</span>
+</div>
+<div class="text-[11px] text-outline font-mono mt-0.5">SHA-256: 7c19...44a9</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                    Compliance Matrix (54)
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-secondary">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">difference</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Commercial Pricing Model Excel -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">table_chart</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary cursor-pointer truncate max-w-md">
+                        Volume_3_Commercial_Pricing_Schedule_Form_B.xlsx
+                      </span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800">Form B</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary text-xs mt-0.5 font-mono">
+<span>3.2 MB</span>
+<span>•</span>
+<span>Oct 14, 2025 11:30 AM</span>
+<span>•</span>
+<span>Formula Validated</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-800">
+                  Mandatory Template
+                </span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium text-xs">DDS Finance Division</div>
+<div class="text-secondary text-[11px]">Pricing Workbook</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-mono font-medium text-xs">6 worksheets</div>
+<div class="text-secondary text-xs">18 formula tables parsed</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-label-sm text-label-sm font-semibold text-emerald-800">Model Ready</span>
+</div>
+<div class="text-[11px] text-outline font-mono mt-0.5">SHA-256: 3a99...0e42</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">
+                    Cost Sheet (18)
+                  </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                    Financial Review
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-secondary">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Annex D GovCloud Overlay -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-indigo-100 text-indigo-700 flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">enhanced_encryption</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary cursor-pointer truncate max-w-md">
+                        Annex_D_GovCloud_FedRAMP_High_Security_Overlay.pdf
+                      </span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">RESTRICTED</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary text-xs mt-0.5 font-mono">
+<span>9.1 MB</span>
+<span>•</span>
+<span>Oct 16, 2025 16:45 PM</span>
+<span>•</span>
+<span>Encrypted at Rest</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-secondary-fixed text-on-secondary-fixed">
+                  Technical Annex
+                </span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium text-xs">National Cyber Center</div>
+<div class="text-secondary text-[11px]">Security Mandate</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-mono font-medium text-xs">124 pages</div>
+<div class="text-secondary text-xs">26 clauses parsed</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-label-sm text-label-sm font-semibold text-indigo-900">FedRAMP High</span>
+</div>
+<div class="text-[11px] text-outline font-mono mt-0.5">SHA-256: 9e31...88ff</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                    Legal &amp; Compliance (26)
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-secondary">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Mandatory Attachment E Subcontractor Attestation -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-blue-100 text-blue-700 flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-semibold text-on-surface hover:text-primary cursor-pointer truncate max-w-md">
+                        Mandatory_Attachment_E_Subcontractor_Attestation.docx
+                      </span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-amber-100 text-amber-800">Draft</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary text-xs mt-0.5 font-mono">
+<span>850 KB</span>
+<span>•</span>
+<span>Oct 18, 2025 10:15 AM</span>
+<span>•</span>
+<span class="text-error font-medium">Signature Required</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-800">
+                  Mandatory Template
+                </span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium text-xs">Proposal Operations</div>
+<div class="text-secondary text-[11px]">Subcontractor Lead</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-mono font-medium text-xs">12 pages</div>
+<div class="text-secondary text-xs">4 signature blanks</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm font-semibold text-error">Missing Signature Upload</span>
+</div>
+<div class="text-[11px] text-outline font-mono mt-0.5">SHA-256: 5d12...c201</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+                    Submission Block (1)
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-secondary">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_document</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-low rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Status Bar -->
+<div class="p-space-sm bg-surface-bright border-t border-outline-variant flex items-center justify-between text-body-sm text-secondary px-space-md">
+<div class="flex items-center gap-space-sm">
+<span>Showing <strong class="text-on-surface font-semibold">6</strong> of <strong class="text-on-surface font-semibold">14</strong> registered documents</span>
+<span class="text-outline">|</span>
+<span class="font-mono text-xs">Storage consumed: 148.2 MB / 5.0 GB</span>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md">
+<button class="px-2.5 py-1 rounded border border-outline-variant bg-surface-container-lowest text-outline cursor-not-allowed" type="button">Previous</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-semibold" type="button">1</button>
+<button class="px-2.5 py-1 rounded border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container-low" type="button">2</button>
+<button class="px-2.5 py-1 rounded border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container-low" type="button">Next</button>
+</div>
+</div>
+</div>
+<!-- Active Document Inspector & AI Diff Drawer (Addendum #03 Focused) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-md overflow-hidden">
+<!-- Inspector Header Bar -->
+<div class="bg-surface-container-low px-space-md py-space-sm border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="p-1.5 rounded bg-tertiary text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">find_in_page</span>
+</span>
+<div class="flex items-center gap-2 truncate">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Active Inspector:</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">RFP-2025-0841_Addendum_03_Corrigendum.pdf</span>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-mono px-2 py-0.5 rounded">Oct 24, 2025</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Open in Split Pane View" type="button">
+<span class="material-symbols-outlined text-[18px]">vertical_split</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Maximize Inspector" type="button">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Close Panel" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Inspector Multi-Column Body -->
+<div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant">
+<!-- Col 1: File Metadata & Integrity Proof (3 Cols) -->
+<div class="lg:col-span-3 p-space-md space-y-space-md bg-surface-container-lowest">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider text-secondary mb-space-xs font-semibold">Cryptographic Receipt</h4>
+<div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/60 font-mono text-[11px] text-on-surface break-all space-y-1">
+<div><span class="text-secondary select-none">HASH (SHA-256):</span><br/>8f4a39b2cd8193a0029ef991c288fa632e12d90a</div>
+<div class="text-emerald-700 flex items-center gap-1 font-sans font-medium mt-1">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>Signature verified DDS root cert</span>
+</div>
+</div>
+</div>
+<div class="space-y-space-xs">
+<div class="flex justify-between text-body-sm py-1 border-b border-outline-variant/40">
+<span class="text-secondary">Uploaded By:</span>
+<span class="font-medium text-on-surface">CO Mark Vance (DDS)</span>
+</div>
+<div class="flex justify-between text-body-sm py-1 border-b border-outline-variant/40">
+<span class="text-secondary">File Category:</span>
+<span class="font-medium text-tertiary">Formal Addendum</span>
+</div>
+<div class="flex justify-between text-body-sm py-1 border-b border-outline-variant/40">
+<span class="text-secondary">Corrigendum Tier:</span>
+<span class="font-semibold text-error">Tier 1 (Scope Change)</span>
+</div>
+<div class="flex justify-between text-body-sm py-1 border-b border-outline-variant/40">
+<span class="text-secondary">Clauses Modified:</span>
+<span class="font-bold text-on-surface font-mono">12 Total</span>
+</div>
+<div class="flex justify-between text-body-sm py-1">
+<span class="text-secondary">Compliance Impact:</span>
+<span class="font-bold text-primary font-mono">High (Matrix v3.2)</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/60 flex items-center justify-between">
+<span class="text-xs text-secondary font-medium">Document OCR Coverage</span>
+<span class="font-mono text-xs font-bold text-emerald-800">100% Vectorized</span>
+</div>
+</div>
+<!-- Col 2: AI Clause Delta & Diff Summary (6 Cols) -->
+<div class="lg:col-span-6 p-space-md space-y-space-md bg-surface-bright">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">auto_fix_high</span>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface">AI Delta Analysis: 12 Clauses Impacted</h4>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded font-mono">Diff Model: TenderLLM-v4.1</span>
+</div>
+<div class="space-y-space-xs">
+<!-- Diff Clause Item 1 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg border border-outline-variant/80 shadow-xs">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold bg-amber-100 text-amber-900 px-1.5 py-0.2 rounded font-mono">SEC-04.1</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Hardware Security Module (FIPS 140-3)</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold">Timeline Accelerated</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs font-mono mt-2 bg-surface-container-low p-2 rounded">
+<div class="text-secondary">
+<div class="text-[10px] uppercase font-bold text-outline">Previous (v1.2 Spec):</div>
+<del class="text-error bg-red-50 p-0.5 rounded">FIPS 140-3 compliance required within 180 days of contract award.</del>
+</div>
+<div class="text-on-surface">
+<div class="text-[10px] uppercase font-bold text-emerald-700">Addendum #03 Update:</div>
+<ins class="text-emerald-900 bg-emerald-50 p-0.5 rounded no-underline font-semibold">FIPS 140-3 validated HSM active at Day 1 of Phase 1 Migration.</ins>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span>Affected Matrix Item: <strong class="text-primary font-medium">Req-SEC-104</strong></span>
+<button class="text-primary hover:underline font-semibold" type="button">Accept Clause Change →</button>
+</div>
+</div>
+<!-- Diff Clause Item 2 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg border border-outline-variant/80 shadow-xs">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold bg-amber-100 text-amber-900 px-1.5 py-0.2 rounded font-mono">SLA-01.4</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Uptime Rebate &amp; Penalty Multiplier</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold">Financial Exposure</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs font-mono mt-2 bg-surface-container-low p-2 rounded">
+<div class="text-secondary">
+<div class="text-[10px] uppercase font-bold text-outline">Previous:</div>
+<del class="text-error bg-red-50 p-0.5 rounded">15% monthly billing rebate credit for availability &lt; 99.95%</del>
+</div>
+<div class="text-on-surface">
+<div class="text-[10px] uppercase font-bold text-emerald-700">Addendum #03 Update:</div>
+<ins class="text-emerald-900 bg-emerald-50 p-0.5 rounded no-underline font-semibold">25% monthly credit penalty + immediate cure breach notice.</ins>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span>Affected Matrix Item: <strong class="text-primary font-medium">Req-FIN-088</strong></span>
+<button class="text-primary hover:underline font-semibold" type="button">Acknowledge &amp; Notify Legal →</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Col 3: Quick Inspector Actions (3 Cols) -->
+<div class="lg:col-span-3 p-space-md space-y-space-md bg-surface-container-lowest flex flex-col justify-between">
+<div class="space-y-space-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Automated Workflows</h4>
+<button class="w-full text-left p-space-sm rounded-lg border border-primary-container/40 bg-primary-fixed/30 hover:bg-primary-fixed/60 transition-colors group" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">sync</span>
+<span class="font-title-md text-title-md font-semibold text-primary">Run Matrix Re-alignment</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+                Updates 12 statements in Compliance Matrix and sets status to "Pending Lead Review".
+              </p>
+</button>
+<button class="w-full text-left p-space-sm rounded-lg border border-outline-variant hover:border-outline bg-surface-container-lowest hover:bg-surface-container-low transition-colors" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">splitscreen</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Open Side-by-Side Diff</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+                Launch dual-viewport viewer comparing Addendum #03 to v1.2 specifications.
+              </p>
+</button>
+<button class="w-full text-left p-space-sm rounded-lg border border-outline-variant hover:border-outline bg-surface-container-lowest hover:bg-surface-container-low transition-colors" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface">quiz</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Draft Clarification Query</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+                Generate Pre-Tender Clarification (PTC) item regarding FIPS 140-3 Phase 1 conflict.
+              </p>
+</button>
+</div>
+<div class="pt-space-sm border-t border-outline-variant/60 flex items-center justify-between text-xs text-secondary font-mono">
+<span>Inspector state: Cached</span>
+<span class="text-primary font-semibold hover:underline cursor-pointer">Export Diff Report (PDF)</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div></main></div></body></html>

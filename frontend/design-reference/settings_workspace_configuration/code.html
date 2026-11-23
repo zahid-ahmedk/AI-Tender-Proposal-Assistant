@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline":"#737686","surface-dim":"#d8dadc","on-secondary-fixed-variant":"#3f465c","on-tertiary-fixed-variant":"#7d2d00","on-secondary":"#ffffff","tertiary-fixed":"#ffdbcd","surface-container-high":"#e6e8ea","outline-variant":"#c3c6d7","on-error":"#ffffff","tertiary-container":"#bc4800","on-background":"#191c1e","surface-container-lowest":"#ffffff","secondary-fixed-dim":"#bec6e0","on-tertiary":"#ffffff","surface-tint":"#0053db","on-primary":"#ffffff","on-tertiary-fixed":"#360f00","secondary-container":"#dae2fd","secondary-fixed":"#dae2fd","on-secondary-fixed":"#131b2e","surface":"#f7f9fb","primary":"#004ac6","primary-fixed":"#dbe1ff","error-container":"#ffdad6","tertiary":"#943700","inverse-surface":"#2d3133","inverse-primary":"#b4c5ff","surface-container":"#eceef0","primary-container":"#2563eb","on-surface":"#191c1e","on-error-container":"#93000a","on-primary-fixed":"#00174b","surface-container-low":"#f2f4f6","surface-variant":"#e0e3e5","secondary":"#565e74","inverse-on-surface":"#eff1f3","surface-bright":"#f7f9fb","on-primary-container":"#eeefff","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","surface-container-highest":"#e0e3e5","on-surface-variant":"#434655","on-tertiary-container":"#ffede6","tertiary-fixed-dim":"#ffb596","error":"#ba1a1a","background":"#f7f9fb","on-secondary-container":"#5c647a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-lg":"1.5rem","space-xl":"2rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"1.5rem","space-md":"1rem","gutter":"1rem"},fontFamily:{"display-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"display-lg":["Plus Jakarta Sans"],"title-md":["Inter"],"label-lg":["Inter"],"title-lg":["Inter"]},fontSize:{"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"18px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-md":["14px",{lineHeight:"20px",fontWeight:"600"}],"label-lg":["13px",{lineHeight:"18px",fontWeight:"500"}],"title-lg":["15px",{lineHeight:"22px",fontWeight:"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-[#0b132b] text-[#e2e8f0] z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.12)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="h-16 px-space-md flex items-center justify-between bg-[#080d1e]"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">query_stats</span></div><span class="font-headline-sm text-headline-sm text-white tracking-tight">TenderIQ</span></div><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-white/10 text-white/80 uppercase tracking-widest">Enterprise</span></div><nav class="flex-1 px-space-sm py-space-md space-y-space-md" data-active-classes="bg-primary-container text-on-primary font-title-md font-semibold shadow-sm"><div class="space-y-1"><div class="px-3 pb-1 font-label-sm text-label-sm text-slate-400 uppercase tracking-wider">Workspace</div><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Overview</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="all-tenders" href="#"><span class="material-symbols-outlined text-[18px]">folder_managed</span><span>All Tenders</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="new-analysis" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span><span>New Analysis</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="deadlines" href="#"><span class="material-symbols-outlined text-[18px]">schedule</span><span>Deadlines</span></a></div><div class="space-y-1"><div class="px-3 pb-1 font-label-sm text-label-sm text-slate-400 uppercase tracking-wider">Analysis &amp; Compliance</div><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="document-register" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Document Register</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="compliance-matrix" href="#"><span class="material-symbols-outlined text-[18px]">fact_check</span><span>Compliance Matrix</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="submission-checklist" href="#"><span class="material-symbols-outlined text-[18px]">checklist</span><span>Submission Checklist</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="clarifications-ptc" href="#"><span class="material-symbols-outlined text-[18px]">question_answer</span><span>Clarifications / PTC</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="missing-documents" href="#"><span class="material-symbols-outlined text-[18px]">file_copy_off</span><span>Missing Documents</span></a></div><div class="space-y-1"><div class="px-3 pb-1 font-label-sm text-label-sm text-slate-400 uppercase tracking-wider">Organization</div><a class="flex items-center gap-space-sm px-3 py-2 rounded text-slate-300 font-label-lg text-label-lg hover:bg-white/10 hover:text-white transition-all" data-path="team-reviews" href="#"><span class="material-symbols-outlined text-[18px]">groups</span><span>Team &amp; Reviews</span></a><a aria-current="page" class="flex items-center gap-space-sm px-3 py-2 rounded transition-all bg-primary-container text-on-primary font-title-md font-semibold shadow-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></div></nav></div><div class="p-space-sm bg-[#080d1e] m-space-sm rounded flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span class="font-label-sm text-label-sm text-slate-300">AI Engine Active</span></div><span class="font-label-sm text-label-sm text-slate-400 font-mono">v2.4-pro</span></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-16 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm min-w-0 max-w-md"><span class="font-label-md text-label-md text-secondary shrink-0">Workspace</span><span class="material-symbols-outlined text-outline-variant text-[16px] shrink-0">chevron_right</span><span class="font-label-md text-label-md text-secondary shrink-0">Organization</span><span class="material-symbols-outlined text-outline-variant text-[16px] shrink-0">chevron_right</span><div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer min-w-0"><span class="material-symbols-outlined text-primary text-[16px] shrink-0">settings</span><span class="font-title-md text-title-md text-on-surface truncate">Settings</span><span class="material-symbols-outlined text-secondary text-[16px] shrink-0">arrow_drop_down</span></div></div><div class="flex-1 max-w-xl mx-auto"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-secondary text-[18px]">search</span><input class="w-full h-10 pl-9 pr-12 rounded bg-surface-container-lowest text-on-surface placeholder:text-secondary font-body-sm text-body-sm shadow-[0_1px_2px_rgba(15,23,42,0.05)] focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search tenders, RFPs, or settings..." type="text"/><div class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary pointer-events-none">⌘K</div></div></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/60"><span class="material-symbols-outlined text-[16px] text-emerald-600">verified</span><span class="font-label-sm text-label-sm font-semibold tracking-wide">94.2% AI Confidence</span></div><button class="relative p-1.5 rounded-full text-secondary hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><button class="flex items-center gap-1.5 h-9 px-space-md rounded bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-all shadow-[0_1px_2px_rgba(15,23,42,0.05)]" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New Tender</span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden xl:flex flex-col text-left"><span class="font-title-md text-title-md text-on-surface leading-tight">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-secondary leading-tight">Senior Bid Director</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command Bar & Context Title -->
+<div class="px-space-lg py-space-md bg-surface-container-lowest shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-wider">
+<span>Organization Hub</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span>System Parameters</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-primary font-semibold">TenderIQ Workspace</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Organization &amp; TenderIQ Configuration</h1>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold tracking-wide">DoD Level-5 Ready</span>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Synced
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary max-w-3xl">
+          Manage specialized legal AI engines, statutory FAR/DFARS presets, federal procurement API endpoints, corporate past performance vaults, and cross-functional sign-off authorities.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-9 px-space-md rounded bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-all font-label-lg text-label-lg flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">restore</span>
+<span>Revert Changes</span>
+</button>
+<button class="h-9 px-space-md rounded bg-surface-container-low text-on-surface hover:bg-surface-container transition-all font-label-lg text-label-lg flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">sensors</span>
+<span>Test API Grid</span>
+</button>
+<button class="h-9 px-space-lg rounded bg-primary-container hover:bg-primary text-on-primary transition-all font-label-lg text-label-lg flex items-center gap-2 shadow-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Save Configurations</span>
+</button>
+</div>
+</div>
+<!-- Navigation Sub-Bar (Tabs) -->
+<div class="flex items-center gap-1 mt-space-lg overflow-x-auto">
+<button class="px-3.5 py-2 font-label-lg text-label-lg text-secondary hover:text-on-surface hover:bg-surface-container-low rounded transition-all whitespace-nowrap">
+        General &amp; Entity ID
+      </button>
+<button class="px-3.5 py-2 font-label-lg text-label-lg text-primary bg-primary-fixed/30 rounded font-semibold transition-all whitespace-nowrap flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">neurology</span>
+<span>AI Parsing &amp; TenderLLM</span>
+</button>
+<button class="px-3.5 py-2 font-label-lg text-label-lg text-secondary hover:text-on-surface hover:bg-surface-container-low rounded transition-all whitespace-nowrap">
+        Statutory &amp; Compliance Presets
+      </button>
+<button class="px-3.5 py-2 font-label-lg text-label-lg text-secondary hover:text-on-surface hover:bg-surface-container-low rounded transition-all whitespace-nowrap flex items-center gap-1.5">
+<span>Integrations &amp; Portal APIs</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</button>
+<button class="px-3.5 py-2 font-label-lg text-label-lg text-secondary hover:text-on-surface hover:bg-surface-container-low rounded transition-all whitespace-nowrap">
+        Security &amp; FedRAMP Keys
+      </button>
+<button class="px-3.5 py-2 font-label-lg text-label-lg text-secondary hover:text-on-surface hover:bg-surface-container-low rounded transition-all whitespace-nowrap">
+        Audit &amp; Governance Policies
+      </button>
+</div>
+</div>
+<!-- Main Body Content Grid -->
+<div class="p-space-lg">
+<div class="grid grid-cols-12 gap-space-lg">
+<!-- ================= LEFT COLUMN (~65% -> 8 of 12 cols) ================= -->
+<div class="col-span-12 xl:col-span-8 space-y-space-lg">
+<!-- SECTION 1: TenderLLM Extraction & Model Parameters -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low/50 -mx-space-lg -mt-space-lg px-space-lg pt-space-lg rounded-t-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">TenderLLM Extraction &amp; Model Parameters</h2>
+<p class="font-body-sm text-body-sm text-secondary">Tune core semantic parsing logic, strictness thresholds, and clause decomposition rules.</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-semibold uppercase">Engine v4.2</span>
+</div>
+<!-- Model Select Box & Live Benchmarks -->
+<div class="space-y-space-md">
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-1">Active Neural Engine</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-primary-fixed/20 shadow-sm cursor-pointer relative overflow-hidden">
+<div class="absolute top-2 right-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-semibold">TenderLLM Enterprise v4.2</div>
+<div class="font-body-sm text-body-sm text-secondary mt-0.5">High-Recall Legal &amp; GovCon</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary font-semibold">99.4% F1</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono">128k context</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<div class="font-title-md text-title-md text-on-surface">Claude 3.5 Sonnet Gov</div>
+<div class="font-body-sm text-body-sm text-secondary mt-0.5">Anthropic AWS GovCloud</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-lowest text-secondary">98.1% F1</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono">200k context</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<div class="font-title-md text-title-md text-on-surface">GPT-4o FedRAMP High</div>
+<div class="font-body-sm text-body-sm text-secondary mt-0.5">Azure Government US Sec</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-lowest text-secondary">97.8% F1</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono">128k context</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Precision Slider and Strictness Indicator -->
+<div class="p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-2">
+<div>
+<span class="font-title-md text-title-md text-on-surface">Parsing Strictness &amp; Statutory Precision</span>
+<p class="font-body-sm text-body-sm text-secondary">Higher values suppress hallucinations and disallow loose interpretations of solicitation deliverables.</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-headline-md text-primary font-bold tracking-tight">98.5%</span>
+<span class="block font-label-sm text-label-sm text-secondary uppercase font-semibold">Statutory Precision</span>
+</div>
+</div>
+<!-- Interactive-looking custom range rail -->
+<div class="relative py-2">
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 88%;"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-secondary mt-2">
+<span>Permissive (Exploratory / Commercial)</span>
+<span class="font-semibold text-primary">GovCon Certified Default (98.5%)</span>
+<span>Zero-Tolerance Absolute (100.0%)</span>
+</div>
+</div>
+</div>
+<!-- Feature Toggles -->
+<div class="space-y-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold block">Extraction Modules &amp; Guardrails</span>
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">priority_high</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Strict Mandatory Language Detection</div>
+<div class="font-body-sm text-body-sm text-secondary">Force highlight and mandatory parsing tags on all occurrences of "Shall", "Must", "Will", and "Strictly Required".</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-4">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">account_tree</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Automatic FAR/DFARS Clause Decomposition &amp; Cross-referencing</div>
+<div class="font-body-sm text-body-sm text-secondary">Decompile FAR 52.2xx and DFARS 252.2xx clauses into discrete technical and cybersecurity compliance action-items.</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-4">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">quick_reference</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Pre-Tender Clarification (PTC) Conflict Auto-detection</div>
+<div class="font-body-sm text-body-sm text-secondary">Flags incongruities between Section C (PWS), Section L (Instructions), and Section M (Evaluation Criteria).</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-4">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 4 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">hub</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Subcontractor Past Performance Synergy Matrixing</div>
+<div class="font-body-sm text-body-sm text-secondary">Cross-map teaming partner capabilities against mandatory work breakdown structure statements.</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-4">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 5 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">pin_drop</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Hallucination Guardrails &amp; Source-Bound Citation Enforcement</div>
+<div class="font-body-sm text-body-sm text-secondary">Strictly reject any recommendation without an exact document, page number, and paragraph citation index.</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-4">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Statutory Compliance & Disqualification Risk Thresholds -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low/50 -mx-space-lg -mt-space-lg px-space-lg pt-space-lg rounded-t-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Statutory Compliance &amp; Disqualification Risk Thresholds</h2>
+<p class="font-body-sm text-body-sm text-secondary">Define automated gate conditions that trigger hard bid-stops or SecOps escalations.</p>
+</div>
+</div>
+<button class="text-primary hover:text-primary-container font-label-md text-label-md font-semibold flex items-center gap-1">
+<span>Policy Presets</span>
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<!-- Risk Condition Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Condition 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm font-semibold uppercase">Fatal Disqualification</span>
+<span class="material-symbols-outlined text-error text-[18px]">lock</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Missing Form SF-33 / Signatory Attachments</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+                If mandatory federal tender representation forms lack verifiable digital or wet signature verification within 48h of submission.
+              </p>
+<div class="pt-2 flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Action: Immediate Red Alert &amp; Portal Freeze</span>
+</div>
+</div>
+<!-- Condition 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm font-semibold uppercase">SecOps Escalation</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">security</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">CMMC 2.0 / FIPS 140-3 Mandate Trigger</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+                Auto-detected cyber defense specifications in Section C trigger immediate review notification to the VP of Information Assurance.
+              </p>
+<div class="pt-2 flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Target: SecOps Lead (Escalation SLA: 2h)</span>
+</div>
+</div>
+</div>
+<!-- Color Review Gates & Timeline Buffers -->
+<div class="mt-space-lg">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold block mb-3">Color Review Timelines &amp; Gate Freezes</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Pink Team Freeze</span>
+<span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary">Storyline &amp; Matrix Freeze</div>
+<div class="mt-2 font-headline-sm text-headline-sm text-on-surface font-mono">10 Days <span class="font-body-sm text-secondary">prior</span></div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Red Team Lock</span>
+<span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary">Cost &amp; Tech Lock</div>
+<div class="mt-2 font-headline-sm text-headline-sm text-on-surface font-mono">5 Days <span class="font-body-sm text-secondary">prior</span></div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">White Glove Buffer</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary">Portal Upload Window</div>
+<div class="mt-2 font-headline-sm text-headline-sm text-on-surface font-mono">24 Hours <span class="font-body-sm text-secondary">hard buffer</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Connected Repositories & Evidence Vaults -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low/50 -mx-space-lg -mt-space-lg px-space-lg pt-space-lg rounded-t-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">folder_special</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Connected Repositories &amp; Evidence Vaults</h2>
+<p class="font-body-sm text-body-sm text-secondary">Corporate knowledge bases ingested by TenderLLM for real-time past-performance citations.</p>
+</div>
+</div>
+<button class="px-space-md py-1.5 rounded bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md font-semibold transition-all flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Connect Store</span>
+</button>
+</div>
+<div class="space-y-space-sm">
+<!-- Repo Item 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">cloud_sync</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface font-semibold">CloudTech Past Performance CPARS Archive (2020-2025)</div>
+<div class="font-body-sm text-body-sm text-secondary flex items-center gap-2 mt-0.5">
+<span>AWS GovCloud S3 (us-gov-west-1)</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>48 Verified Volumes</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="text-emerald-700 font-medium">Synced 58m ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">Indexed</span>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Repo Item 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface font-semibold">GovCloud FedRAMP High System Security Plan (SSP)</div>
+<div class="font-body-sm text-body-sm text-secondary flex items-center gap-2 mt-0.5">
+<span>Secure SharePoint Enterprise</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>142 Security Controls &amp; Policies</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="text-emerald-700 font-medium">Real-time Webhook</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">Indexed</span>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Repo Item 3 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface font-semibold">Corporate SAM.gov Entities &amp; Executive Certifications</div>
+<div class="font-body-sm text-body-sm text-secondary flex items-center gap-2 mt-0.5">
+<span>CAGE: 4Q892</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>UEI: LKM89482ND83</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="text-emerald-700 font-medium">Active Expiration Nov 2026</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">Active</span>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN (~35% -> 4 of 12 cols) ================= -->
+<div class="col-span-12 xl:col-span-4 space-y-space-lg">
+<!-- Integration Status Sidebar Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">lan</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Procurement Portals &amp; APIs</h2>
+</div>
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+</div>
+<div class="space-y-space-md">
+<!-- SAM.gov API -->
+<div class="p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">SAM.gov Federal API</span>
+<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold">Live</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">142ms</span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary">
+                Direct solicitation scraping &amp; amendment tracking.
+              </div>
+<div class="mt-2 text-label-sm font-label-sm text-secondary">
+                Token valid for <span class="font-semibold text-on-surface">84 days</span> (Rotates automatically)
+              </div>
+</div>
+<!-- DoD PIEE -->
+<div class="p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">DoD PIEE / WAWF</span>
+<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold">Connected</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">210ms</span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary">
+                Procurement Integrated Enterprise Environment connector.
+              </div>
+<div class="mt-2 text-label-sm font-label-sm text-secondary">
+                Mutual TLS (mTLS) &amp; CAC/PKI Enforced
+              </div>
+</div>
+<!-- DocuSign -->
+<div class="p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">DocuSign eSign API</span>
+<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold">Operational</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">88ms</span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary">
+                Automated SF-1449 and Teaming Agreement signature pipeline.
+              </div>
+<div class="mt-2 text-label-sm font-label-sm text-secondary">
+                Production Webhook: <span class="font-mono text-on-surface font-semibold">200 OK</span>
+</div>
+</div>
+<button class="w-full h-9 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">sync_lock</span>
+<span>Rotate OAuth Tokens &amp; Certificates</span>
+</button>
+</div>
+</div>
+<!-- Default Signatory & Delegation Matrix -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">draw</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Signatory &amp; Delegation Matrix</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">DoA Levels</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mb-space-md">
+            Mandatory gate sign-off officers for proposal release to federal buyers.
+          </p>
+<div class="space-y-space-sm">
+<!-- Officer 1 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-label-md shrink-0">
+                SJ
+              </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<div class="font-title-md text-title-md text-on-surface truncate">Sarah Jenkins</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Legal Gate</span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary truncate">Lead Procurement Counsel (FAR Sign-off)</div>
+</div>
+</div>
+<!-- Officer 2 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-bold text-label-md shrink-0">
+                MV
+              </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<div class="font-title-md text-title-md text-on-surface truncate">Marcus Vance</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Tech Gate</span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary truncate">Chief Architect (FIPS/CMMC Certification)</div>
+</div>
+</div>
+<!-- Officer 3 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary font-bold text-label-md shrink-0">
+                DC
+              </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<div class="font-title-md text-title-md text-on-surface truncate">David Chen</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Financial Gate</span>
+</div>
+<div class="font-body-sm text-body-sm text-secondary truncate">CFO (Pricing Model &amp; BOE Approver)</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm border-t-0">
+<a class="font-label-md text-label-md text-primary hover:text-primary-container font-semibold flex items-center gap-1 transition-colors" href="#">
+<span>Configure Delegation of Authority (DoA) Rules</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Data Residency & Encryption Protocols -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">encrypted</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Data Residency &amp; KMS Protocols</h2>
+</div>
+<div class="space-y-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Boundary Isolation</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">FedRAMP High</span>
+</div>
+<div class="font-title-md text-title-md text-on-surface">US-Gov-West &amp; US-Gov-East Only</div>
+<div class="font-body-sm text-body-sm text-secondary">Zero outbound transit outside US sovereign physical zones.</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">At-Rest Key Management</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Customer KMS</span>
+</div>
+<div class="font-body-sm text-body-sm font-mono text-secondary truncate">arn:aws:kms:us-gov-west-1:84920:key/942-df82</div>
+<div class="font-label-sm text-label-sm text-secondary">AES-256 with 90-day HSM cryptographic rotation.</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Retention &amp; Purge</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">Statutory Rule</span>
+</div>
+<div class="font-title-md text-title-md text-on-surface">7 Years Post-Award Purge</div>
+<div class="font-body-sm text-body-sm text-secondary">Automatic cryptographic shredding per NIST SP 800-88 rev1.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

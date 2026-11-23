@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>TenderIQ</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#004ac6","tertiary-container":"#bc4800","surface-bright":"#f7f9fb","surface-container-low":"#f2f4f6","background":"#f7f9fb","on-primary-fixed-variant":"#003ea8","surface-variant":"#e0e3e5","surface-container-highest":"#e0e3e5","on-primary-fixed":"#00174b","on-tertiary-container":"#ffede6","on-background":"#191c1e","primary-fixed":"#dbe1ff","primary-container":"#2563eb","on-error":"#ffffff","on-secondary-fixed":"#131b2e","on-tertiary-fixed-variant":"#7d2d00","tertiary-fixed-dim":"#ffb596","error":"#ba1a1a","secondary-fixed-dim":"#bec6e0","on-tertiary":"#ffffff","primary-fixed-dim":"#b4c5ff","surface-dim":"#d8dadc","on-secondary":"#ffffff","outline":"#737686","outline-variant":"#c3c6d7","on-primary":"#ffffff","on-surface-variant":"#434655","tertiary-fixed":"#ffdbcd","surface-container-lowest":"#ffffff","inverse-on-surface":"#eff1f3","surface-container":"#eceef0","inverse-primary":"#b4c5ff","error-container":"#ffdad6","secondary-container":"#dae2fd","secondary-fixed":"#dae2fd","surface":"#f7f9fb","tertiary":"#943700","on-error-container":"#93000a","inverse-surface":"#2d3133","on-tertiary-fixed":"#360f00","on-surface":"#191c1e","on-secondary-fixed-variant":"#3f465c","secondary":"#565e74","on-secondary-container":"#5c647a","surface-container-high":"#e6e8ea","surface-tint":"#0053db","on-primary-container":"#eeefff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter":"1rem","space-md":"1rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"2rem","space-lg":"1.5rem"},fontFamily:{"body-sm":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"title-lg":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-lg":["Inter"],"title-md":["Inter"],"label-sm":["Inter"],"label-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Inter"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",fontWeight:"400"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-lg":["15px",{lineHeight:"22px",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}],"label-lg":["13px",{lineHeight:"18px",fontWeight:"500"}],"title-md":["14px",{lineHeight:"20px",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-on-secondary-fixed text-inverse-on-surface z-50 flex flex-col justify-between py-space-lg"><div class="flex flex-col flex-1 overflow-y-auto"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary-container">analytics</span><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight">TenderIQ</span></div><nav class="flex-1 px-space-sm space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><div class="px-space-sm pt-space-xs pb-space-xs font-label-sm text-label-sm uppercase text-secondary-fixed-dim">Workspace</div><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="all-tenders" href="#"><span>All Tenders</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="new-analysis" href="#"><span>New Analysis</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="deadlines" href="#"><span>Deadlines</span></a><div class="px-space-sm pt-space-md pb-space-xs font-label-sm text-label-sm uppercase text-secondary-fixed-dim">Analysis &amp; Compliance</div><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="document-register" href="#"><span>Document Register</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="compliance-matrix" href="#"><span>Compliance Matrix</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="submission-checklist" href="#"><span>Submission Checklist</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="clarifications-ptc" href="#"><span>Clarifications / PTC</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="missing-documents" href="#"><span>Missing Documents</span></a><div class="px-space-sm pt-space-md pb-space-xs font-label-sm text-label-sm uppercase text-secondary-fixed-dim">Organization</div><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="team-reviews" href="#"><span>Team &amp; Reviews</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:bg-on-secondary-fixed-variant hover:text-on-primary transition-colors" data-path="settings" href="#"><span>Settings</span></a></nav></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest border-b border-outline-variant z-40 px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm min-w-0"><img alt="TenderIQ Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMmAtXU7pbvCxvSPCO6P4irUd-YJw_k-N410HtIzZT-3wj_3bqo5mHdmS-08rKeIGOO4T2J6A63HqW2YVAxfcCyZbuA1uIJldwL8fp1v9NOJ1wdClLjb2qKD4XE6GZ-1qWX3Cz5EdT9spWmlVB-uVyDFMnxT_Q0Srktz80lNXMk3VUjGdSR_MWXxAZllDFU-6KUbFhVqGy6aCb5KiqY2mw0_IHNdUkmHbRRTRb508"/><nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant overflow-hidden truncate"><span class="hover:text-on-surface cursor-pointer transition-colors">Workspace</span><span class="text-outline">/</span><span class="hover:text-on-surface cursor-pointer transition-colors truncate max-w-xs">RFP-2025-0841: Cloud Infrastructure Modernization</span><span class="text-outline">/</span><span class="text-on-surface font-semibold">Document Register</span></nav></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center justify-between w-80 h-9 px-space-sm bg-surface-container-low border border-outline-variant rounded-lg text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm">Search tenders, RFPs, or documents...</span></div><span class="font-label-sm text-label-sm px-1.5 py-0.5 bg-surface-container-lowest border border-outline-variant rounded">⌘K</span></div><button aria-label="Notifications" class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button class="flex items-center gap-space-xs h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New Tender</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuZXVmI-FpRlfDQgRAGD3U7TZ1td0M66snPHArEcXBlRzmr9x_kamuvYJQNmN9ElVJfNu7skYYomNRDWMJesjdXUGHppH1l9IJgsI27aYVmN6YGtlNHLlVTQbeeDiVuTVSxc4xzzavbT0VLcdW7A035eNfP-o_O7rpWBhbM0SKIT8s4G6B5qU6lC1V6OUj_IcSYTyarTXhcfXVmDrPN0RfoI_jU93P3pIHv70Ovac"/></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full relative">
+<!-- ========================================================
+       BACKGROUND: TENDER WORKSPACE (Clarifications / PTC view)
+       Rendered behind semi-transparent scrim with active state
+       ======================================================== -->
+<div class="w-full px-margin py-space-lg select-none opacity-40 pointer-events-none filter blur-[0.6px]">
+<!-- Workspace Title Row -->
+<div class="flex items-center justify-between mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase font-semibold">Active RFP</span>
+<span class="font-label-md text-label-md text-secondary">RFP-2025-0841 • Dept of Digital Services</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">Clarifications &amp; Pre-Tender Queries (PTC)</div>
+<div class="font-body-sm text-body-sm text-secondary">Manage formal inquiries, contradictory specs, and submission window deadlines with the contracting office.</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export Register (.xlsx)</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Generate PTC Item</span>
+</button>
+</div>
+</div>
+<!-- Quick Stats Metric Band -->
+<div class="grid grid-cols-4 gap-gutter mb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Total Queries Drafted</div>
+<div class="font-headline-lg text-headline-lg text-on-surface mt-1">15 Items</div>
+<div class="font-body-sm text-body-sm text-secondary mt-1">8 approved • 4 submitted • 3 in review</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Submission Cutoff</div>
+<div class="font-headline-lg text-headline-lg text-tertiary mt-1">3d 08h Remaining</div>
+<div class="font-body-sm text-body-sm text-secondary mt-1">Oct 27, 2025 at 17:00 EST</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Addendum Discrepancies</div>
+<div class="font-headline-lg text-headline-lg text-primary mt-1">6 Detected</div>
+<div class="font-body-sm text-body-sm text-secondary mt-1">Addendum #03 cross-impact</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Government Bulletin Status</div>
+<div class="font-headline-lg text-headline-lg text-on-surface mt-1">Bulletin #02 Live</div>
+<div class="font-body-sm text-body-sm text-secondary mt-1">42 public answers ingested</div>
+</div>
+</div>
+<!-- Mock Background Table of Clarifications -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="font-title-md text-title-md text-on-surface">Registered PTC Items (15)</div>
+<div class="flex items-center gap-space-sm">
+<div class="h-8 px-space-sm bg-surface-container-lowest rounded text-secondary font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filter by status
+          </div>
+</div>
+</div>
+<div class="p-space-lg space-y-3">
+<div class="h-10 bg-surface-container-low rounded-lg w-full"></div>
+<div class="h-10 bg-surface-container-low rounded-lg w-full"></div>
+<div class="h-10 bg-surface-container-low rounded-lg w-full"></div>
+<div class="h-10 bg-surface-container-low rounded-lg w-full"></div>
+<div class="h-10 bg-surface-container-low rounded-lg w-full"></div>
+</div>
+</div>
+</div>
+<!-- ========================================================
+       MODAL SCRIM / BACKDROP (Click to dismiss interaction)
+       ======================================================== -->
+<div class="fixed inset-0 top-16 left-64 bg-on-secondary-fixed/40 backdrop-blur-sm z-40 transition-opacity duration-200" id="drawer-scrim"></div>
+<!-- ========================================================
+       RIGHT-SIDE DRAWER: CREATE PRE-TENDER CLARIFICATION QUERY
+       Width ~700px, enterprise-dense, Linear/Stripe inspired
+       ======================================================== -->
+<section aria-labelledby="drawer-heading" aria-modal="true" class="fixed top-16 right-0 bottom-0 w-full max-w-[720px] bg-surface-container-lowest shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-right duration-200" id="ptc-drawer" role="dialog">
+<!-- DRAWER HEADER (Sticky Top) -->
+<div class="px-space-lg py-space-md bg-surface-container-lowest flex flex-col gap-space-xs flex-shrink-0 shadow-sm relative z-10">
+<div class="flex items-center justify-between">
+<!-- Breadcrumb & Badges -->
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-label-sm text-label-sm font-semibold tracking-wider text-secondary uppercase bg-surface-container-low px-2 py-0.5 rounded">
+            PTC-2025-015 • DRAFT
+          </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+            Pending Internal Legal Sign-off
+          </span>
+</div>
+<!-- Controls: Save draft, Close, Shortcut hint -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center gap-1" title="Save current progress">
+<span class="material-symbols-outlined text-[16px] text-secondary">bookmark</span>
+<span>Save Draft</span>
+</button>
+<div class="h-4 w-px bg-surface-container-high mx-1"></div>
+<button aria-label="Close clarification drawer" class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors flex items-center justify-center" id="close-drawer-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<span class="hidden md:inline-block font-label-sm text-label-sm text-outline px-1.5 py-0.5 rounded bg-surface-container-low">ESC</span>
+</div>
+</div>
+<!-- Main Titles -->
+<div class="mt-1">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight" id="drawer-heading">
+          New Clarification Request
+        </h2>
+<p class="font-body-sm text-body-sm text-secondary">
+          Draft and cross-reference formal queries submitted to the Contracting Authority prior to final bid submission.
+        </p>
+</div>
+</div>
+<!-- DRAWER SCROLLABLE BODY -->
+<div class="flex-1 overflow-y-auto px-space-lg py-space-md space-y-space-lg">
+<!-- SECTION A: LINKED CLAUSE & SOURCE DOCUMENT CONTEXT CARD -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-secondary">RFP Clause &amp; Conflict Anchor</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline flex items-center gap-0.5">
+<span>Change Anchor</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+<!-- Linked Clause Banner -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm mb-space-sm shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">link</span>
+<div class="min-w-0 flex-1">
+<div class="font-title-md text-title-md text-on-surface font-semibold">
+              § 4.1.2 / SEC-04.1 — Hardware Security Module Standard &amp; FIPS 140-3 Validation
+            </div>
+<div class="font-body-sm text-body-sm text-secondary mt-0.5 flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">description</span>
+<span>Volume 1 Technical Specs v1.2 vs Addendum #03 (Oct 24, 2025)</span>
+</span>
+<span class="text-outline">•</span>
+<span class="text-primary font-medium hover:underline cursor-pointer">View Addendum Diff</span>
+</div>
+</div>
+</div>
+<!-- Detected Issue Summary Pill -->
+<div class="bg-error-container text-on-error-container rounded-lg px-space-sm py-2 text-body-sm font-body-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-error flex-shrink-0 mt-0.5">error_outline</span>
+<div>
+<span class="font-semibold">Detected Conflict:</span> Lead time for certified FIPS 140-3 appliances exceeds Day 1 Phase 1 Migration deadline, creating an irreconcilable qualification barrier without an interim bridge waiver.
+          </div>
+</div>
+</div>
+<!-- SECTION B: METADATA & REVIEW ASSIGNMENT (Two-column grid) -->
+<div class="grid grid-cols-2 gap-space-md">
+<!-- Category Selector -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="ptc-category">
+            Clarification Category
+          </label>
+<div class="relative">
+<select class="w-full h-10 px-space-sm pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer" id="ptc-category">
+<option selected="">Technical Architecture &amp; Hardware</option>
+<option>Commercial Terms &amp; Pricing Models</option>
+<option>SLA &amp; Performance Penalties</option>
+<option>Legal / IP &amp; Data Sovereignty</option>
+<option>Scope of Work / Deliverables</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-secondary absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Impact Severity -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1" for="ptc-severity">
+            Impact Severity Level
+          </label>
+<div class="relative">
+<select class="w-full h-10 px-space-sm pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer" id="ptc-severity">
+<option selected="">High (Disqualification Risk)</option>
+<option>Medium (Cost / Timeline Variance)</option>
+<option>Low (Editorial / Clerical Ambiguity)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-error absolute right-2.5 top-2.5 pointer-events-none">flag</span>
+</div>
+</div>
+<!-- Authority Deadline Countdown Card -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm uppercase font-semibold text-secondary">PTC Window Closes</div>
+<div class="font-title-md text-title-md text-tertiary font-semibold truncate">Oct 27, 2025 • 17:00 EST</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-tertiary-container px-2 py-0.5 rounded-full font-medium">
+            3 days left
+          </span>
+</div>
+<!-- Internal Review Team -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="flex -space-x-2 flex-shrink-0">
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Professional headshot of male cybersecurity technical lead Marcus Vance in crisp business attire with warm subtle blue studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKIsst8AZBSqpo8vi5JBT1i3lwFZ8YPwEgjY2UfkseovNXbAkRsm3_K67dqXiFeOyA_iM9CjoDTT6vXCipdd1IIwfbs5pJtmoknBehWC1B2al9aPANtoTedZLYpRzwaz0_XzrgOpLYO_yT61IB0zmIg0krdbsrUZxnmOBrnOMCSGHwGhD6xV2ijM1pwI4xjn7OwiPlLExJZDbce18jgPODR-DqzDrhm6rDMeO5oT8"/>
+<img class="w-7 h-7 rounded-full object-cover shadow-sm" data-alt="Professional headshot of female legal counsel Sarah Jenkins wearing tailored corporate blazer with bright clean neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQdZ-Se8FyU3IBzxjv8w0Y85ti-dg1VLrdtwZ5gncKsLi-Kj_Nju8dma3OPS3pMDuCxBbwJgqqPX-neYIEPStC65sa1VqcE2enmm2b21zpMEFDOiKKfW3JOszKRvHmV1_oqKoqHhIdSt0wydLRB8FKLpjnb982CZ8dl_sFBWwXdwKEeWT72iHnuQFFcBNpyKOibK8gj9KHJzxckoN5-U1LARzxHWLVX9l3IONQmGc"/>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm uppercase font-semibold text-secondary">Assigned Reviewers</div>
+<div class="font-body-sm text-body-sm text-on-surface font-semibold truncate">M. Vance &amp; S. Jenkins</div>
+</div>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline">Manage</button>
+</div>
+</div>
+<!-- SECTION C: QUERY DETAILS & AI ASSIST -->
+<div class="space-y-space-md">
+<!-- Clause Citations Input -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="clause-ref">
+              Official RFP Clause Reference(s)
+            </label>
+<span class="font-label-sm text-label-sm text-secondary">Comma-separated cross-references</span>
+</div>
+<input class="w-full h-10 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="clause-ref" type="text" value="§ 4.1.2, § 7.1.4, Annex F (Addendum #03)"/>
+</div>
+<!-- Ambiguity / Conflict Statement -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="conflict-statement">
+              Factual Ambiguity or Contradiction Statement
+            </label>
+<span class="font-label-sm text-label-sm text-secondary">Internal assessment notes</span>
+</div>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="conflict-statement" rows="3">Addendum #03 removes the standard 180-day transition window for FIPS 140-3 Level 3 validation, requiring fully certified operational appliances on Day 1 of Phase 1 Migration. However, current NIST CMVP laboratory queues are 8–12 months, creating an irreconcilable industry lead-time barrier without an interim FIPS 140-2 bridge waiver.</textarea>
+</div>
+<!-- TENDERIQ AI COPILOT SUGGESTION BOX -->
+<div class="bg-gradient-to-br from-secondary-container/40 via-surface-container-lowest to-secondary-container/20 rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">smart_toy</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">TenderLLM Formal Framing Suggestion</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm uppercase font-semibold">FAR / DFARS Tone</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-7 px-2 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Formal Inquisitive</span>
+</button>
+<button class="h-7 px-2 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm hover:bg-surface-container flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span>Regenerate</span>
+</button>
+</div>
+</div>
+<!-- Suggested Query Wording -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm mb-space-sm text-on-surface font-body-sm text-body-sm leading-relaxed" id="ai-suggestion-text">
+            “Will the Department permit vendors who furnish NIST-submitted, FIPS 140-2 Level 3 certified hardware to operate under a temporary conditional waiver while NIST CMVP FIPS 140-3 certificates are pending final federal gazette issuance, provided FedRAMP High boundary isolation is maintained?”
+          </div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-secondary">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">auto_awesome</span>
+<span>Framed as neutral qualification inquiry to avoid vendor bias disclosure</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-on-primary-fixed-variant transition-colors flex items-center gap-1 shadow-sm" id="insert-wording-btn">
+<span class="material-symbols-outlined text-[16px]">content_paste</span>
+<span>Insert Suggested Wording</span>
+</button>
+</div>
+</div>
+<!-- Official Query Text to Contracting Authority -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="formal-query-text">
+              Formal Question to Contracting Officer (Published Text)
+            </label>
+<span class="font-label-sm text-label-sm text-secondary">Character count: 284 / 1,000</span>
+</div>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="formal-query-text" rows="3">Will the Department permit vendors who furnish NIST-submitted, FIPS 140-2 Level 3 certified hardware to operate under a temporary conditional waiver while NIST CMVP FIPS 140-3 certificates are pending final federal gazette issuance, provided FedRAMP High boundary isolation is maintained?</textarea>
+</div>
+</div>
+<!-- SECTION D: PROPOSED RESOLUTION / VENDOR ALTERNATIVE -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="vendor-compromise">
+            Proposed Vendor Compromise / Recommended Clarification Wording
+          </label>
+<span class="font-label-sm text-label-sm text-secondary">Optional remedy suggested to contracting team</span>
+</div>
+<input class="w-full h-10 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="vendor-compromise" type="text" value="Grant a 120-day provisional deployment window with FIPS 140-2 Level 3 hardware with certified NIST CMVP lab intake tracking receipts."/>
+</div>
+<!-- SECTION E: INTERNAL STRATEGY & COMPLIANCE ASSESSMENT -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="font-title-md text-title-md text-on-surface font-semibold">
+          Internal Strategy &amp; Redaction Controls
+        </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Checkbox 1 -->
+<label class="flex items-start gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg shadow-sm cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-surface">Commercial / Cost Impact</div>
+<div class="font-body-sm text-body-sm text-secondary">Affects Bill of Materials pricing by approx +$240k if expedited hardware certification required.</div>
+</div>
+</label>
+<!-- Checkbox 2 -->
+<label class="flex items-start gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg shadow-sm cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-surface">Critical Bid Submission Blocker</div>
+<div class="font-body-sm text-body-sm text-secondary">Requires Go/No-Go Executive Committee escalation if authority strictly refuses waiver.</div>
+</div>
+</label>
+</div>
+<!-- Anonymize Toggle -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-surface font-semibold">Anonymize Bidder Identity in Public Q&amp;A Bulletin</div>
+<div class="font-body-sm text-body-sm text-secondary">Redact proprietary product names and architecture hallmarks from Contracting Officer public release.</div>
+</div>
+</div>
+<!-- Switch Active -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-container-high after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+<!-- SECTION F: SUPPORTING EVIDENCE & ATTACHMENTS -->
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Supporting Evidence &amp; Technical Citations</span>
+<span class="font-label-sm text-label-sm text-secondary">(2 items attached)</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Attach Evidence File</span>
+</button>
+</div>
+<!-- Attachment Chips -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-error text-[22px] flex-shrink-0">picture_as_pdf</span>
+<div class="min-w-0 truncate">
+<div class="font-title-md text-title-md text-on-surface truncate">NIST_CMVP_Queue_Backlog_Notice.pdf</div>
+<div class="font-label-sm text-label-sm text-secondary">1.2 MB • Federal Bulletin Oct 2025</div>
+</div>
+</div>
+<button class="p-1 text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[22px] flex-shrink-0">menu_book</span>
+<div class="min-w-0 truncate">
+<div class="font-title-md text-title-md text-on-surface truncate">Architecture_Security_Baseline_v1.0.pdf</div>
+<div class="font-label-sm text-label-sm text-secondary">Page 48 • HSM Deployment Diagram</div>
+</div>
+</div>
+<button class="p-1 text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- DRAWER FOOTER (Sticky Action Bar) -->
+<div class="px-space-lg py-space-sm bg-surface-container-lowest shadow-lg flex items-center justify-between flex-shrink-0 relative z-10">
+<!-- Left: Audit Trail / Traceability -->
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm min-w-0 max-w-xs truncate">
+<span class="material-symbols-outlined text-[16px] text-primary">history</span>
+<span class="truncate">Initiated by M. Vance (SecOps) via Addendum #03 Diff Analysis</span>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-high text-on-surface font-label-lg text-label-lg hover:bg-surface-variant transition-colors" id="cancel-btn">
+          Cancel
+        </button>
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Preview Letter</span>
+</button>
+<button class="h-9 px-space-lg rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-colors flex items-center gap-1.5 shadow-sm font-semibold" id="submit-ptc-btn">
+<span>Route for Internal Review</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<script>
+  (function() {
+    const drawer = document.getElementById('ptc-drawer');
+    const scrim = document.getElementById('drawer-scrim');
+    const closeBtn = document.getElementById('close-drawer-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const insertBtn = document.getElementById('insert-wording-btn');
+    const formalQueryInput = document.getElementById('formal-query-text');
+    const aiSuggestionText = document.getElementById('ai-suggestion-text');
+
+    function closeDrawer() {
+      if (drawer && scrim) {
+        drawer.style.transform = 'translateX(100%)';
+        drawer.style.transition = 'transform 200ms ease-in';
+        scrim.style.opacity = '0';
+        scrim.style.transition = 'opacity 200ms ease-in';
+        setTimeout(() => {
+          drawer.classList.add('hidden');
+          scrim.classList.add('hidden');
+        }, 200);
+      }
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeDrawer);
+    if (scrim) scrim.addEventListener('click', closeDrawer);
+
+    // ESC shortcut
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    // Insert AI Suggestion copy into textarea
+    if (insertBtn && formalQueryInput && aiSuggestionText) {
+      insertBtn.addEventListener('click', () => {
+        const text = aiSuggestionText.innerText.replace(/["“”]/g, '').trim();
+        formalQueryInput.value = text;
+        formalQueryInput.focus();
+        insertBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span> Inserted';
+        setTimeout(() => {
+          insertBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">content_paste</span> Insert Suggested Wording';
+        }, 1500);
+      });
+    }
+  })();
+</script></main></div></body></html>
