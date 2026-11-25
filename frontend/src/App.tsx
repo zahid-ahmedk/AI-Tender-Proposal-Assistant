@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
+import { FileSearch, Plus } from 'lucide-react';
 import type {
   AnswerLibraryEntry,
   AppView,
@@ -28,9 +29,9 @@ import { TeamRulesView } from './components/TeamRulesView';
 import { UploadRfpModal } from './components/UploadRfpModal';
 
 const STORAGE_KEYS = {
-  tenders: 'tenderiq_tenders_v1',
-  library: 'tenderiq_library_v1',
-  rules: 'tenderiq_rules_v1',
+  tenders: 'tenderiq_tenders_v2',
+  library: 'tenderiq_library_v2',
+  rules: 'tenderiq_rules_v2',
 };
 
 function readStored<T>(key: string, fallback: T): T {
@@ -57,7 +58,7 @@ export default function App() {
 
   const [activeView, setActiveView] = useState<AppView>('overview');
   const [activeTenderId, setActiveTenderId] = useState<string>(
-    () => tenders[0]?.id ?? INITIAL_TENDERS[0].id
+    () => tenders[0]?.id ?? INITIAL_TENDERS[0]?.id ?? ''
   );
   const [selectedRequirementId, setSelectedRequirementId] = useState<string | null>(
     null
@@ -160,7 +161,6 @@ export default function App() {
   const rescanTenderById = (tender: TenderRecord): TenderRecord => ({
     ...tender,
     requirements: tender.requirements.map((req) => {
-      // Preserve explicitly approved compliant items; re-evaluate others against current rules
       if (req.responseApproved && req.status === 'compliant') return req;
       const evaluated = evaluateClauseRisk(req.sourceQuote || req.summary, riskRules);
       return {
@@ -221,10 +221,11 @@ export default function App() {
   const handleAddLibraryEntry = (
     entry: Omit<AnswerLibraryEntry, 'id' | 'lastVerified' | 'usageCount'>
   ) => {
+    const today = new Date().toISOString().slice(0, 10);
     const created: AnswerLibraryEntry = {
       ...entry,
       id: `lib-${Date.now().toString(36)}`,
-      lastVerified: '2026-11-25',
+      lastVerified: today,
       usageCount: 0,
     };
     setLibraryEntries((prev) => [created, ...prev]);
@@ -247,7 +248,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#F8FAFC] text-[#0F172A] overflow-x-hidden">
+    <div className="h-screen w-full flex bg-[#F8FAFC] text-[#0F172A] overflow-hidden">
       <Sidebar
         activeView={activeView}
         onSelectView={(view) => setActiveView(view)}
@@ -259,7 +260,7 @@ export default function App() {
         activeTendersCount={portfolioMetrics.activeTendersCount}
       />
 
-      <div className="flex-1 min-w-0 flex flex-col">
+      <div className="flex-1 min-w-0 h-full flex flex-col overflow-hidden">
         <TopBar
           activeView={activeView}
           activeTenderTitle={activeTender?.title}
@@ -269,68 +270,92 @@ export default function App() {
           onOpenUploadModal={() => setUploadModalOpen(true)}
         />
 
-        <main className="flex-1 min-w-0 p-4 sm:p-6 max-w-[1600px] w-full mx-auto">
-          {activeView === 'overview' && (
-            <OverviewView
-              tenders={tenders}
-              teamMembers={TEAM_MEMBERS}
-              globalSearch={globalSearch}
-              onInspectTender={handleInspectTender}
-              onOpenUploadModal={() => setUploadModalOpen(true)}
-              onViewAllEscalations={() => setActiveView('matrix')}
-            />
-          )}
+        <main className="flex-1 min-w-0 overflow-y-auto">
+          <div className="p-4 sm:p-6 max-w-[1600px] w-full mx-auto">
+            {activeView === 'overview' && (
+              <OverviewView
+                tenders={tenders}
+                teamMembers={TEAM_MEMBERS}
+                globalSearch={globalSearch}
+                onInspectTender={handleInspectTender}
+                onOpenUploadModal={() => setUploadModalOpen(true)}
+                onViewAllEscalations={() => setActiveView('matrix')}
+              />
+            )}
 
-          {activeView === 'analyzer' && activeTender && (
-            <DocumentAnalyzerView
-              tenders={tenders}
-              activeTender={activeTender}
-              selectedRequirementId={selectedRequirementId}
-              teamMembers={TEAM_MEMBERS}
-              libraryEntries={libraryEntries}
-              onSelectTender={(id) => {
-                setActiveTenderId(id);
-                setSelectedRequirementId(null);
-              }}
-              onSelectRequirement={setSelectedRequirementId}
-              onUpdateRequirement={handleUpdateRequirement}
-              onRescanTender={handleRescanTender}
-              onExportTenderCsv={handleExportTenderCsv}
-              onUseLibraryEntry={handleUseLibraryEntry}
-            />
-          )}
+            {activeView === 'analyzer' &&
+              (activeTender ? (
+                <DocumentAnalyzerView
+                  tenders={tenders}
+                  activeTender={activeTender}
+                  selectedRequirementId={selectedRequirementId}
+                  teamMembers={TEAM_MEMBERS}
+                  libraryEntries={libraryEntries}
+                  onSelectTender={(id) => {
+                    setActiveTenderId(id);
+                    setSelectedRequirementId(null);
+                  }}
+                  onSelectRequirement={setSelectedRequirementId}
+                  onUpdateRequirement={handleUpdateRequirement}
+                  onRescanTender={handleRescanTender}
+                  onExportTenderCsv={handleExportTenderCsv}
+                  onUseLibraryEntry={handleUseLibraryEntry}
+                />
+              ) : (
+                <div className="bg-white border border-[#E2E8F0] rounded-[8px] p-12 text-center max-w-lg mx-auto mt-8">
+                  <FileSearch
+                    className="w-9 h-9 text-[#94A3B8] mx-auto mb-3"
+                    aria-hidden="true"
+                  />
+                  <h2 className="text-[16px] font-semibold text-[#0F172A]">
+                    No RFP documents uploaded yet
+                  </h2>
+                  <p className="text-[13px] text-[#64748B] mt-1">
+                    Upload or paste a tender document to extract clauses, assess legal risks, and draft compliance responses.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setUploadModalOpen(true)}
+                    className="mt-4 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-[6px] bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-[13px] font-medium transition-colors"
+                  >
+                    <Plus className="w-4 h-4" aria-hidden="true" />
+                    <span>Upload RFP</span>
+                  </button>
+                </div>
+              ))}
 
-          {activeView === 'matrix' && (
-            <ComplianceMatrixView
-              tenders={tenders}
-              teamMembers={TEAM_MEMBERS}
-              globalSearch={globalSearch}
-              onUpdateRequirement={handleUpdateRequirement}
-              onBulkUpdateRequirements={handleBulkUpdateRequirements}
-              onInspectClause={handleInspectTender}
-              onExportCsv={handleExportMatrixCsv}
-            />
-          )}
+            {activeView === 'matrix' && (
+              <ComplianceMatrixView
+                tenders={tenders}
+                teamMembers={TEAM_MEMBERS}
+                globalSearch={globalSearch}
+                onUpdateRequirement={handleUpdateRequirement}
+                onBulkUpdateRequirements={handleBulkUpdateRequirements}
+                onInspectClause={handleInspectTender}
+                onExportCsv={handleExportMatrixCsv}
+              />
+            )}
 
-          {activeView === 'library' && (
-            <AnswerLibraryView
-              entries={libraryEntries}
-              teamMembers={TEAM_MEMBERS}
-              globalSearch={globalSearch}
-              onAddEntry={handleAddLibraryEntry}
-              onDeleteEntry={handleDeleteLibraryEntry}
-            />
-          )}
+            {activeView === 'library' && (
+              <AnswerLibraryView
+                entries={libraryEntries}
+                teamMembers={TEAM_MEMBERS}
+                globalSearch={globalSearch}
+                onAddEntry={handleAddLibraryEntry}
+                onDeleteEntry={handleDeleteLibraryEntry}
+              />
+            )}
 
-          {activeView === 'team' && (
-            <TeamRulesView
-              tenders={tenders}
-              teamMembers={TEAM_MEMBERS}
-              riskRules={riskRules}
-              onToggleRule={handleToggleRule}
-              onRescanAll={handleRescanAllTenders}
-            />
-          )}
+            {activeView === 'team' && (
+              <TeamRulesView
+                tenders={tenders}
+                teamMembers={TEAM_MEMBERS}
+                riskRules={riskRules}
+                onToggleRule={handleToggleRule}
+                onRescanAll={handleRescanAllTenders}
+              />
+            )}
+          </div>
         </main>
       </div>
 

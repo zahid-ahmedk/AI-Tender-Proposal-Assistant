@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   LayoutDashboard,
   FileSearch,
@@ -62,13 +62,7 @@ export function Sidebar({
           aria-label="TenderIQ Home"
         >
           <span className="w-7 h-7 rounded-md bg-[#2563EB] flex items-center justify-center shrink-0">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
                 d="M3 3.5H13M8 3.5V12.5M4.75 7.5H11.25"
                 stroke="#FFFFFF"
@@ -120,7 +114,7 @@ export function Sidebar({
           const Icon = item.icon;
           const isActive = activeView === item.id;
           const countLabel =
-            item.id === 'overview'
+            item.id === 'overview' && activeTendersCount > 0
               ? activeTendersCount
               : item.id === 'matrix' && highRiskCount > 0
                 ? highRiskCount
@@ -151,9 +145,7 @@ export function Sidebar({
                     isActive ? 'text-[#60A5FA]' : 'text-slate-400'
                   }`}
                 />
-                {!isCompact && (
-                  <span className="truncate whitespace-nowrap">{item.label}</span>
-                )}
+                {!isCompact && <span className="truncate whitespace-nowrap">{item.label}</span>}
               </span>
 
               {!isCompact && countLabel !== null && (
@@ -174,7 +166,7 @@ export function Sidebar({
 
       {/* Expand Toggle when Compact */}
       {!isMobileDrawer && isCompact && (
-        <div className="px-2.5 py-2 border-t border-slate-800/80 flex justify-center">
+        <div className="px-2.5 py-2 border-t border-slate-800/80 flex justify-center shrink-0">
           <button
             type="button"
             onClick={onToggleCollapse}
@@ -187,7 +179,7 @@ export function Sidebar({
         </div>
       )}
 
-      {/* User Profile Footer */}
+      {/* Workspace Footer */}
       <div
         className={`border-t border-slate-800/90 p-3 shrink-0 ${
           isCompact ? 'flex justify-center' : ''
@@ -195,15 +187,15 @@ export function Sidebar({
       >
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-8 h-8 rounded-md bg-slate-800 border border-slate-700 text-slate-200 text-[12px] font-semibold flex items-center justify-center shrink-0">
-            SC
+            IQ
           </div>
           {!isCompact && (
             <div className="min-w-0">
               <div className="text-[13px] font-medium text-white truncate">
-                Sarah Chen
+                TenderIQ Workspace
               </div>
               <div className="text-[11px] text-slate-400 truncate">
-                Principal Bid Manager
+                Proposal &amp; Bid Management
               </div>
             </div>
           )}
@@ -214,10 +206,10 @@ export function Sidebar({
 
   return (
     <>
-      {/* Desktop & Tablet Persistent Sidebar */}
+      {/* Desktop & Tablet Locked Sidebar */}
       <aside
         aria-label="Primary Sidebar"
-        className={`hidden sm:block shrink-0 h-screen sticky top-0 border-r border-slate-800 transition-[width] duration-200 ${
+        className={`hidden sm:block shrink-0 h-screen overflow-hidden border-r border-slate-800 transition-[width] duration-200 ${
           collapsed ? 'w-[64px]' : 'w-[240px]'
         }`}
       >
