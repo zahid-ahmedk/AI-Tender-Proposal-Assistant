@@ -1,0 +1,6 @@
+{
+  "name": "TenderIQ",
+  "description": "AI-powered Tender and RFP Analysis Platform for bid managers, proposal teams, legal reviewers, and enterprise sales executives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
