@@ -220,7 +220,7 @@ export function AnswerLibraryView({
                 type="text"
                 value={tagsText}
                 onChange={(e) => setTagsText(e.target.value)}
-                placeholder="e.g. HIPAA, AES-256, Key Rotation"
+                placeholder="e.g. Performance Bond, Method Statement, ISO 45001"
                 className="w-full h-9 px-3 bg-white border border-[#E2E8F0] rounded-[6px] text-[13px] text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
               />
             </div>

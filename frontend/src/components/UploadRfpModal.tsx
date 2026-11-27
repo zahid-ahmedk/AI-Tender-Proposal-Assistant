@@ -1,8 +1,36 @@
-import React, { useState } from 'react';
-import { FileUp, Sparkles, X } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import {
+  AlertCircle,
+  CheckCircle2,
+  FileSpreadsheet,
+  FileText,
+  Loader2,
+  Sparkles,
+  UploadCloud,
+  X,
+} from 'lucide-react';
 import type { UploadRfpInput } from '../types/tender';
 import { validateUploadForm, type UploadField } from '../utils/rfpAnalyzer';
-import { SAMPLE_RFP_TEMPLATES } from '../data/seedData';
+import {
+  ACCEPT_ATTRIBUTE,
+  MAX_FILES_PER_PACKAGE,
+  extractTenderFileText,
+  formatFileSize,
+  getTenderFileKind,
+  validateTenderFile,
+} from '../utils/documentParser';
+
+type FileStatus = 'parsing' | 'ready' | 'error';
+
+interface PackageFile {
+  id: string;
+  name: string;
+  size: number;
+  status: FileStatus;
+  text: string;
+  pageCount?: number;
+  error?: string;
+}
 
 interface UploadRfpModalProps {
   open: boolean;
@@ -16,6 +44,7 @@ const INITIAL_FORM: UploadRfpInput = {
   sector: 'Enterprise Software',
   contractValue: '',
   deadlineDate: '2026-12-18',
+  sourceFiles: [],
   rawText: '',
 };
 
@@ -26,9 +55,15 @@ export function UploadRfpModal({
 }: UploadRfpModalProps) {
   const [form, setForm] = useState<UploadRfpInput>(INITIAL_FORM);
   const [errors, setErrors] = useState<Partial<Record<UploadField, string>>>({});
-  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
+  const [files, setFiles] = useState<PackageFile[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const nextFileId = useRef(0);
 
   if (!open) return null;
+
+  const isParsing = files.some((f) => f.status === 'parsing');
+  const hasFailedFiles = files.some((f) => f.status === 'error');
 
   const updateField = <K extends keyof UploadRfpInput>(
     field: K,
@@ -40,50 +75,115 @@ export function UploadRfpModal({
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploadedFileName(file.name);
-    const reader = new FileReader();
-    reader.onload = () => {
-      const content = typeof reader.result === 'string' ? reader.result : '';
-      updateField('rawText', content);
-      if (!form.title.trim()) {
-        updateField(
-          'title',
-          file.name.replace(/\.(txt|md|csv)$/i, '').replace(/[_-]+/g, ' ')
-        );
-      }
-    };
-    reader.readAsText(file);
+  const patchFile = (id: string, patch: Partial<PackageFile>) => {
+    setFiles((prev) => prev.map((f) => (f.id === id ? { ...f, ...patch } : f)));
   };
 
-  const handleLoadTemplate = (templateId: string) => {
-    const tpl = SAMPLE_RFP_TEMPLATES.find((t) => t.id === templateId);
-    if (!tpl) return;
-    setForm({
-      title: tpl.title,
-      issuingAuthority: tpl.issuingAuthority,
-      sector: tpl.sector,
-      contractValue: tpl.contractValue,
-      deadlineDate: tpl.deadlineDate,
-      rawText: tpl.rawText,
+  const addFiles = (incoming: FileList | File[]) => {
+    const picked = Array.from(incoming);
+    if (picked.length === 0) return;
+
+    const slotsLeft = MAX_FILES_PER_PACKAGE - files.length;
+    const accepted = picked.slice(0, Math.max(slotsLeft, 0));
+    const overflow = picked.length - accepted.length;
+
+    const entries: { entry: PackageFile; file: File }[] = accepted.map((file) => {
+      const problem = validateTenderFile(file);
+      nextFileId.current += 1;
+      return {
+        file,
+        entry: {
+          id: `pkg-file-${nextFileId.current}`,
+          name: file.name,
+          size: file.size,
+          status: problem ? 'error' : 'parsing',
+          text: '',
+          error: problem ?? undefined,
+        },
+      };
     });
-    setUploadedFileName(null);
-    setErrors({});
+
+    setFiles((prev) => [...prev, ...entries.map((e) => e.entry)]);
+    setErrors((prev) => ({
+      ...prev,
+      documents: overflow > 0
+        ? `Only ${MAX_FILES_PER_PACKAGE} files per tender package. ${overflow} file(s) were not added.`
+        : undefined,
+    }));
+
+    // Pre-fill the tender title from the first uploaded file name if it is empty.
+    const firstValid = entries.find((e) => e.entry.status === 'parsing');
+    if (firstValid && !form.title.trim()) {
+      updateField(
+        'title',
+        firstValid.file.name.replace(/\.(pdf|docx|xlsx)$/i, '').replace(/[_-]+/g, ' ')
+      );
+    }
+
+    entries
+      .filter((e) => e.entry.status === 'parsing')
+      .forEach(async ({ entry, file }) => {
+        try {
+          const parsed = await extractTenderFileText(file);
+          patchFile(entry.id, {
+            status: 'ready',
+            text: parsed.text,
+            pageCount: parsed.pageCount,
+          });
+        } catch (err) {
+          patchFile(entry.id, {
+            status: 'error',
+            error: err instanceof Error ? err.message : 'Could not read this file.',
+          });
+        }
+      });
+  };
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) addFiles(e.target.files);
+    e.target.value = ''; // allow re-selecting the same file after removing it
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+    addFiles(e.dataTransfer.files);
+  };
+
+  const removeFile = (id: string) => {
+    setFiles((prev) => prev.filter((f) => f.id !== id));
+    setErrors((prev) => ({ ...prev, documents: undefined }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const result = validateUploadForm(form);
+    const readyFiles = files.filter((f) => f.status === 'ready');
+    const payload: UploadRfpInput = {
+      ...form,
+      sourceFiles: readyFiles.map((f) => f.name),
+      rawText: readyFiles.map((f) => f.text).join('\n\n'),
+    };
+
+    const result = validateUploadForm(payload);
+    if (isParsing) {
+      setErrors({ ...result.errors, documents: 'Wait for all files to finish processing.' });
+      return;
+    }
+    if (hasFailedFiles) {
+      setErrors({
+        ...result.errors,
+        documents: 'Remove the files that failed to process, or replace them, then try again.',
+      });
+      return;
+    }
     if (!result.valid) {
       setErrors(result.errors);
       return;
     }
 
-    onSubmitRfp(form);
+    onSubmitRfp(payload);
     setForm(INITIAL_FORM);
-    setUploadedFileName(null);
+    setFiles([]);
     setErrors({});
     onClose();
   };
@@ -109,10 +209,10 @@ export function UploadRfpModal({
               id="upload-rfp-modal-title"
               className="text-[18px] font-semibold text-[#0F172A]"
             >
-              Upload &amp; Analyze RFP Document
+              Upload &amp; Analyze Tender Package
             </h2>
             <p className="text-[12px] text-[#64748B] mt-0.5">
-              Extract structured requirements, compliance classifications, and legal risk flags automatically.
+              Upload the complete tender package (PDF, DOCX, XLSX) to extract requirements, compliance classifications, and legal risk flags automatically.
             </p>
           </div>
           <button
@@ -131,25 +231,6 @@ export function UploadRfpModal({
           noValidate
           className="overflow-y-auto px-6 py-5 space-y-4 flex-1"
         >
-          {/* Quick Sample Loader */}
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-[8px] p-3 flex flex-wrap items-center justify-between gap-2">
-            <span className="text-[12px] font-medium text-[#475569]">
-              Need sample procurement text to test extraction?
-            </span>
-            <div className="flex items-center gap-2 flex-wrap">
-              {SAMPLE_RFP_TEMPLATES.map((tpl) => (
-                <button
-                  key={tpl.id}
-                  type="button"
-                  onClick={() => handleLoadTemplate(tpl.id)}
-                  className="h-7 px-2.5 rounded-[4px] bg-white border border-[#E2E8F0] hover:bg-[#EFF6FF] hover:border-[#BFDBFE] hover:text-[#1D4ED8] text-[12px] font-medium text-[#0F172A] transition-colors"
-                >
-                  Load {tpl.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label
@@ -258,36 +339,117 @@ export function UploadRfpModal({
             </div>
           </div>
 
-          {/* File Drop Input + Text Area */}
+          {/* Tender package upload */}
           <div>
             <div className="flex items-center justify-between gap-2 mb-1">
-              <label
-                htmlFor="rfp-raw-text"
+              <span
+                id="rfp-files-label"
                 className="text-[12px] font-medium text-[#0F172A]"
               >
-                RFP Document Clauses (Paste or Upload .txt / .md) *
-              </label>
-              <label className="inline-flex items-center gap-1.5 text-[12px] font-medium text-[#2563EB] hover:text-[#1D4ED8] cursor-pointer">
-                <FileUp className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>{uploadedFileName ?? 'Attach text file'}</span>
-                <input
-                  type="file"
-                  accept=".txt,.md,.text"
-                  onChange={handleFileChange}
-                  className="sr-only"
-                />
-              </label>
+                Tender Package Files (PDF, DOCX, XLSX) *
+              </span>
+              <span className="text-[12px] text-[#64748B] tabular-nums">
+                {files.length}/{MAX_FILES_PER_PACKAGE} files
+              </span>
             </div>
-            <textarea
-              id="rfp-raw-text"
-              rows={7}
-              value={form.rawText}
-              onChange={(e) => updateField('rawText', e.target.value)}
-              placeholder="Paste procurement sections separated by blank lines (e.g., SLA uptime, SOC 2 security, indemnification, payment terms)..."
-              className="w-full p-3 bg-white border border-[#E2E8F0] rounded-[6px] text-[13px] leading-[19px] text-[#0F172A] placeholder:text-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
-            />
-            {errors.rawText && (
-              <p className="text-[12px] text-[#BE123C] mt-1">{errors.rawText}</p>
+
+            <div
+              onDragOver={(e) => {
+                e.preventDefault();
+                setIsDragging(true);
+              }}
+              onDragLeave={() => setIsDragging(false)}
+              onDrop={handleDrop}
+              className={`flex flex-col items-center justify-center gap-1.5 text-center px-4 py-6 border-2 border-dashed rounded-[8px] transition-colors ${
+                isDragging
+                  ? 'border-[#2563EB] bg-[#EFF6FF]'
+                  : errors.documents
+                    ? 'border-[#BE123C] bg-[#FFF1F2]/40'
+                    : 'border-[#CBD5E1] bg-[#F8FAFC] hover:border-[#93C5FD]'
+              }`}
+            >
+              <UploadCloud className="w-6 h-6 text-[#64748B]" aria-hidden="true" />
+              <p className="text-[13px] text-[#0F172A]">
+                Drag &amp; drop tender files here, or{' '}
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  aria-labelledby="rfp-files-label"
+                  className="font-medium text-[#2563EB] hover:text-[#1D4ED8] underline-offset-2 hover:underline"
+                >
+                  browse
+                </button>
+              </p>
+              <p className="text-[12px] text-[#64748B]">
+                RFP document, terms &amp; conditions, pricing schedules, questionnaires · up to 25 MB each
+              </p>
+              <input
+                ref={fileInputRef}
+                type="file"
+                multiple
+                accept={ACCEPT_ATTRIBUTE}
+                onChange={handleFileInputChange}
+                className="sr-only"
+                tabIndex={-1}
+                aria-hidden="true"
+              />
+            </div>
+
+            {errors.documents && (
+              <p className="text-[12px] text-[#BE123C] mt-1" role="alert">
+                {errors.documents}
+              </p>
+            )}
+
+            {files.length > 0 && (
+              <ul className="mt-3 space-y-2" aria-label="Uploaded tender files">
+                {files.map((f) => {
+                  const Icon = getTenderFileKind(f.name) === 'xlsx' ? FileSpreadsheet : FileText;
+                  return (
+                    <li
+                      key={f.id}
+                      className={`flex items-center gap-3 px-3 py-2 bg-white border rounded-[6px] ${
+                        f.status === 'error' ? 'border-[#FECDD3]' : 'border-[#E2E8F0]'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4 text-[#64748B] shrink-0" aria-hidden="true" />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[13px] font-medium text-[#0F172A] truncate" title={f.name}>
+                          {f.name}
+                        </p>
+                        <p
+                          className={`text-[12px] ${
+                            f.status === 'error' ? 'text-[#BE123C]' : 'text-[#64748B]'
+                          }`}
+                        >
+                          {f.status === 'error'
+                            ? f.error
+                            : f.status === 'parsing'
+                              ? `${formatFileSize(f.size)} · Reading document…`
+                              : `${formatFileSize(f.size)}${f.pageCount ? ` · ${f.pageCount} pages` : ''} · Ready`}
+                        </p>
+                      </div>
+                      {f.status === 'parsing' && (
+                        <Loader2 className="w-4 h-4 text-[#2563EB] animate-spin shrink-0" aria-label="Processing" />
+                      )}
+                      {f.status === 'ready' && (
+                        <CheckCircle2 className="w-4 h-4 text-[#15803D] shrink-0" aria-label="Ready" />
+                      )}
+                      {f.status === 'error' && (
+                        <AlertCircle className="w-4 h-4 text-[#BE123C] shrink-0" aria-label="Failed" />
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => removeFile(f.id)}
+                        aria-label={`Remove ${f.name}`}
+                        className="p-1 rounded-md text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition-colors shrink-0"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
             )}
           </div>
 
@@ -302,7 +464,8 @@ export function UploadRfpModal({
             </button>
             <button
               type="submit"
-              className="inline-flex items-center gap-1.5 h-9 px-4 rounded-[6px] bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-[13px] font-medium transition-colors"
+              disabled={isParsing}
+              className="inline-flex items-center gap-1.5 h-9 px-4 rounded-[6px] bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-60 disabled:cursor-not-allowed text-white text-[13px] font-medium transition-colors"
             >
               <Sparkles className="w-4 h-4" aria-hidden="true" />
               <span>Analyze &amp; Extract Requirements</span>

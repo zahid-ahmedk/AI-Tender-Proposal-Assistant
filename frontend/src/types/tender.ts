@@ -114,6 +114,9 @@ export interface UploadRfpInput {
   sector: string;
   contractValue: string;
   deadlineDate: string;
+  /** Names of the uploaded PDF/DOCX/XLSX files that make up the tender package. */
+  sourceFiles: string[];
+  /** Text extracted from all source files, clauses separated by blank lines. */
   rawText: string;
 }
 

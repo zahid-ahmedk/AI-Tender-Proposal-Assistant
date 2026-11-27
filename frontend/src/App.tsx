@@ -31,7 +31,7 @@ import { UploadRfpModal } from './components/UploadRfpModal';
 const STORAGE_KEYS = {
   tenders: 'tenderiq_tenders_v2',
   library: 'tenderiq_library_v2',
-  rules: 'tenderiq_rules_v2',
+  rules: 'tenderiq_rules_v3',
 };
 
 function readStored<T>(key: string, fallback: T): T {
@@ -311,7 +311,7 @@ export default function App() {
                     No RFP documents uploaded yet
                   </h2>
                   <p className="text-[13px] text-[#64748B] mt-1">
-                    Upload or paste a tender document to extract clauses, assess legal risks, and draft compliance responses.
+                    Upload a tender package (PDF, DOCX or XLSX) to extract requirements and flag risks.
                   </p>
                   <button
                     type="button"

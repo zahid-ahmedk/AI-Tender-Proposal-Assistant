@@ -16,7 +16,7 @@ export type UploadField =
   | 'issuingAuthority'
   | 'contractValue'
   | 'deadlineDate'
-  | 'rawText';
+  | 'documents';
 
 export function validateUploadForm(
   input: UploadRfpInput
@@ -40,8 +40,11 @@ export function validateUploadForm(
     errors.deadlineDate = 'Select a valid submission deadline (YYYY-MM-DD).';
   }
 
-  if (!input.rawText.trim() || input.rawText.trim().length < 40) {
-    errors.rawText = 'Provide at least 40 characters of RFP document text to extract clauses.';
+  if (input.sourceFiles.length === 0) {
+    errors.documents = 'Upload at least one PDF, DOCX or XLSX file from the tender package.';
+  } else if (input.rawText.trim().length < 40) {
+    errors.documents =
+      'Not enough readable text was extracted from the uploaded files to identify clauses.';
   }
 
   return {
