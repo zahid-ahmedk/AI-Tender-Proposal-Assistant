@@ -61,15 +61,8 @@ export function Sidebar({
           className="flex items-center gap-2.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] rounded-md"
           aria-label="TenderIQ Home"
         >
-          <span className="w-7 h-7 rounded-md bg-[#2563EB] flex items-center justify-center shrink-0">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path
-                d="M3 3.5H13M8 3.5V12.5M4.75 7.5H11.25"
-                stroke="#FFFFFF"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
+          <span className="w-7 h-7 rounded-md bg-white flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="/logo.jpeg" alt="TenderIQ" className="w-5 h-5 object-contain" />
           </span>
           {!isCompact && (
             <span
@@ -178,29 +171,6 @@ export function Sidebar({
           </button>
         </div>
       )}
-
-      {/* Workspace Footer */}
-      <div
-        className={`border-t border-slate-800/90 p-3 shrink-0 ${
-          isCompact ? 'flex justify-center' : ''
-        }`}
-      >
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-md bg-slate-800 border border-slate-700 text-slate-200 text-[12px] font-semibold flex items-center justify-center shrink-0">
-            IQ
-          </div>
-          {!isCompact && (
-            <div className="min-w-0">
-              <div className="text-[13px] font-medium text-white truncate">
-                TenderIQ Workspace
-              </div>
-              <div className="text-[11px] text-slate-400 truncate">
-                Proposal &amp; Bid Management
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   );
 
@@ -237,3 +207,5 @@ export function Sidebar({
     </>
   );
 }
+
+
